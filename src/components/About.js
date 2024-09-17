@@ -33,7 +33,7 @@ function About({ activeMenu }) {
       </section>
 
       <section className={styles.service}>
-        <h3 className={`h3 ${styles.service__title}`}>What i'm doing</h3>
+        <h3 className={`h3 ${styles.service__title}`}>What i am doing</h3>
 
         <ul className={styles.service__list}>
           <li className={styles.service__item}>
