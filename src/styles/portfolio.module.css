@@ -1,3 +1,6 @@
+.article__title {
+  margin-bottom: 30px;
+}
 .filter__list {
   display: none;
 }
@@ -191,7 +194,6 @@
   }
   .article__title {
     padding-bottom: 20px;
-    margin-bottom: 20px;
   }
   .filter__item button {
     color: var(--light-gray);

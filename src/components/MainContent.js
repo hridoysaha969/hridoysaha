@@ -5,6 +5,8 @@ import About from "./About";
 import { useState } from "react";
 import Resume from "./Resume";
 import Portfolio from "./Portfolio";
+import Services from "./Services";
+import Contact from "./Contact";
 function MainContent() {
   const [activeMenu, setActiveMenu] = useState("about");
   return (
@@ -13,6 +15,8 @@ function MainContent() {
       {activeMenu === "about" && <About activeMenu={activeMenu} />}
       {activeMenu === "resume" && <Resume activeMenu={activeMenu} />}
       {activeMenu === "portfolio" && <Portfolio activeMenu={activeMenu} />}
+      {activeMenu === "services" && <Services activeMenu={activeMenu} />}
+      {activeMenu === "contact" && <Contact activeMenu={activeMenu} />}
     </div>
   );
 }

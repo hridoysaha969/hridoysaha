@@ -38,11 +38,11 @@ function Navbar({ activeMenu, setActiveMenu }) {
         <li className={styles.navbar__item}>
           <button
             className={`${styles.navbar__link} ${
-              activeMenu === "blog" && styles.active
+              activeMenu === "services" && styles.active
             }`}
-            onClick={() => setActiveMenu("blog")}
+            onClick={() => setActiveMenu("services")}
           >
-            Blog
+            Services
           </button>
         </li>
 
