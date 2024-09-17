@@ -1,0 +1,273 @@
+.sidebar {
+  margin-bottom: 15px;
+  max-height: 112px;
+  overflow: hidden;
+  transition: var(--transition-2);
+}
+
+.sidebar.active {
+  max-height: 405px;
+}
+
+.sidebar__info {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar__box {
+  background: var(--bg-gradient-onyx);
+  border-radius: 20px;
+}
+
+.info__content .name {
+  color: var(--white-2);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-500);
+  letter-spacing: -0.25px;
+  margin-bottom: 10px;
+}
+
+.info__content .title {
+  color: var(--white-1);
+  background: var(--onyx);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  width: max-content;
+  padding: 3px 12px;
+  border-radius: 8px;
+}
+
+.info__more_btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  border-radius: 0 15px;
+  font-size: 13px;
+  color: var(--orange-yellow-crayola);
+  background: var(--border-gradient-onyx);
+  padding: 10px;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+  z-index: 1;
+}
+
+.info__more_btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: var(--bg-gradient-jet);
+  transition: var(--transition-1);
+  z-index: -1;
+}
+
+.info__more_btn:hover,
+.info__more_btn:focus {
+  background: var(--bg-gradient-yellow-1);
+}
+
+.info__more_btn:hover::before,
+.info__more_btn:focus::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+.info__more_btn span {
+  display: none;
+}
+
+.sidebar__info_more {
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-2);
+}
+
+.sidebar.active .sidebar__info_more {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contacts__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.contact__item {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact__info {
+  max-width: calc(100% - 46px);
+  width: calc(100% - 46px);
+}
+
+.contact__title {
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact__info :is(.contact__link, span, address) {
+  color: var(--white-2);
+  font-size: var(--fs-7);
+}
+
+.contact__info address {
+  font-style: normal;
+}
+
+.social__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 4px;
+  padding-left: 7px;
+}
+
+.social__item .social__link {
+  color: var(--light-gray-70);
+  font-size: 18px;
+}
+
+.social__item .social__link:hover {
+  color: var(--light-gray);
+}
+
+@media (min-width: 580px) {
+  /**
+   * #SIDEBAR
+   */
+
+  .sidebar {
+    max-height: 180px;
+    margin-bottom: 30px;
+  }
+
+  .sidebar.active {
+    max-height: 584px;
+  }
+
+  .sidebar__info {
+    gap: 25px;
+  }
+
+  .avatar__box {
+    border-radius: 30px;
+  }
+
+  .avatar__box img {
+    width: 120px;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  .info__content .name {
+    margin-bottom: 15px;
+  }
+
+  .info__content .title {
+    padding: 5px 18px;
+  }
+
+  .info__more_btn {
+    top: -30px;
+    right: -30px;
+    padding: 10px 15px;
+  }
+
+  .info__more_btn span {
+    display: block;
+    font-size: var(--fs-8);
+  }
+
+  .info__more_btn svg {
+    display: none;
+  }
+
+  .contacts__list {
+    gap: 20px;
+  }
+
+  .contact__info {
+    max-width: calc(100% - 64px);
+    width: calc(100% - 64px);
+  }
+}
+
+@media (min-width: 768px) {
+  /**
+   * SIDEBAR
+   */
+
+  .contacts__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 15px;
+  }
+}
+@media (min-width: 1250px) {
+  /**
+   * SIDEBAR
+   */
+
+  .sidebar {
+    position: sticky;
+    top: 60px;
+    max-height: max-content;
+    height: 100%;
+    margin-bottom: 0;
+    padding-top: 60px;
+    z-index: 1;
+  }
+  .sidebar__info {
+    flex-direction: column;
+  }
+
+  .avatar__box img {
+    width: 150px;
+  }
+
+  .info__content .name {
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .info__content .title {
+    margin: auto;
+  }
+
+  .info__more_btn {
+    display: none;
+  }
+
+  .sidebar__info_more {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .contacts__list {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__info :is(.contact__link) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .contact__info :is(.contact__link, span, address) {
+    --fs-7: 14px;
+    font-weight: var(--fw-300);
+  }
+
+  .social__list {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,20 @@
+"use client";
+import styles from "@/app/page.module.css";
+import Navbar from "./Navbar";
+import About from "./About";
+import { useState } from "react";
+import Resume from "./Resume";
+import Portfolio from "./Portfolio";
+function MainContent() {
+  const [activeMenu, setActiveMenu] = useState("about");
+  return (
+    <div className={styles.main__content}>
+      <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+      {activeMenu === "about" && <About activeMenu={activeMenu} />}
+      {activeMenu === "resume" && <Resume activeMenu={activeMenu} />}
+      {activeMenu === "portfolio" && <Portfolio activeMenu={activeMenu} />}
+    </div>
+  );
+}
+
+export default MainContent;
