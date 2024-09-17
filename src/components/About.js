@@ -1,8 +1,8 @@
 import styles from "@/styles/about.module.css";
 import Image from "next/image";
-import design from "../../public/icon-design.svg";
-import dev from "../../public/icon-dev.svg";
-import database from "../../public/icon-app.svg";
+import design from "@/assets/icon-design.svg";
+import dev from "@/assets/icon-dev.svg";
+import database from "@/assets/icon-app.svg";
 
 function About({ activeMenu }) {
   return (
