@@ -167,6 +167,7 @@
     width: 120px;
     height: auto;
     border-radius: 30px;
+    image-orientation: from-image;
   }
 
   .info__content .name {
