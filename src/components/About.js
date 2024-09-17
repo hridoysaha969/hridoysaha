@@ -17,7 +17,7 @@ function About({ activeMenu }) {
 
       <section className={styles.about__text}>
         <p>
-          I'm Creative Director and UI/UX Designer from Sydney, Australia,
+          I am Creative Director and UI/UX Designer from Sydney, Australia,
           working in web development and print media. I enjoy turning complex
           problems into simple, beautiful and intuitive designs.
         </p>
