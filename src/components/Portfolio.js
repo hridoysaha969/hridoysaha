@@ -1,7 +1,7 @@
 import styles from "@/styles/portfolio.module.css";
 import Link from "next/link";
 import { MdArrowDropDown, MdOutlineRemoveRedEye } from "react-icons/md";
-import img from "@/assets/projectImg/project-1.jpg";
+import img from "../../public/projectImg/project-1.jpg";
 import Image from "next/image";
 
 function Portfolio({ activeMenu }) {

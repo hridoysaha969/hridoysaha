@@ -1,7 +1,7 @@
 "use client";
 import styles from "@/styles/aside.module.css";
 import Image from "next/image";
-import heroImg from "@/assets/hridoy-saha.jpg";
+import heroImg from "../../public/hridoy-saha.jpg";
 import Link from "next/link";
 import {
   MdArrowDropDown,
