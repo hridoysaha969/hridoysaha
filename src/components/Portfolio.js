@@ -73,46 +73,6 @@ function Portfolio({ activeMenu }) {
               <p className={styles.project__category}>Web development</p>
             </Link>
           </li>
-          <li
-            className={`${styles.project__item} ${styles.active}`}
-            data-filter-item
-            data-category="web development"
-          >
-            <Link href="#">
-              <figure className={styles.project__img}>
-                <div className={styles.project__item_icon_box}>
-                  {/* <ion-icon name="eye-outline"></ion-icon> */}
-                  <MdOutlineRemoveRedEye />
-                </div>
-
-                <Image src={img} alt="finance" loading="lazy" />
-              </figure>
-
-              <h3 className={styles.project__title}>Finance</h3>
-
-              <p className={styles.project__category}>Web development</p>
-            </Link>
-          </li>
-          <li
-            className={`${styles.project__item} ${styles.active}`}
-            data-filter-item
-            data-category="web development"
-          >
-            <Link href="#">
-              <figure className={styles.project__img}>
-                <div className={styles.project__item_icon_box}>
-                  {/* <ion-icon name="eye-outline"></ion-icon> */}
-                  <MdOutlineRemoveRedEye />
-                </div>
-
-                <Image src={img} alt="finance" loading="lazy" />
-              </figure>
-
-              <h3 className={styles.project__title}>Finance</h3>
-
-              <p className={styles.project__category}>Web development</p>
-            </Link>
-          </li>
         </ul>
       </section>
     </article>

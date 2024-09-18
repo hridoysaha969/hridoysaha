@@ -1,8 +1,12 @@
 import styles from "@/styles/about.module.css";
 import Image from "next/image";
-import design from "@/assets/icon-design.svg";
-import dev from "@/assets/icon-dev.svg";
-import database from "@/assets/icon-app.svg";
+import design from "@/assets/design.png";
+import dev from "@/assets/dev.png";
+import database from "@/assets/database.png";
+import fiverr from "@/assets/fiverr.png";
+import linkedin from "@/assets/linkedin.png";
+import Link from "next/link";
+import { MdLink } from "react-icons/md";
 
 function About({ activeMenu }) {
   return (
@@ -17,18 +21,11 @@ function About({ activeMenu }) {
 
       <section className={styles.about__text}>
         <p>
-          I am Creative Director and UI/UX Designer from Sydney, Australia,
-          working in web development and print media. I enjoy turning complex
-          problems into simple, beautiful and intuitive designs.
-        </p>
-
-        <p>
-          My job is to build your website so that it is functional and
-          user-friendly but at the same time attractive. Moreover, I add
-          personal touch to your product and make sure that is eye-catching and
-          easy to use. My aim is to bring across your message and identity in
-          the most creative way. I created web design for many famous brand
-          companies.
+          I am a passionate Full Stack Developer with a focus in both front-end
+          and back-end development. Since starting my web design journey in
+          2020, I have continuously honed my skills through self-learning,
+          mastering modern web technologies to deliver clean and efficient
+          solutions.
         </p>
       </section>
 
@@ -45,8 +42,8 @@ function About({ activeMenu }) {
               <h4 className={`h4 ${styles.service__item_title}`}>Frontend</h4>
 
               <p className={styles.service__item_text}>
-                The most modern and high-quality design made at a professional
-                level.
+                Crafting responsive and user-friendly interfaces with the latest
+                technologies to deliver seamless, engaging web experiences.
               </p>
             </div>
           </li>
@@ -60,7 +57,9 @@ function About({ activeMenu }) {
               <h4 className={`h4 ${styles.service__item_title}`}>Backend</h4>
 
               <p className={styles.service__item_text}>
-                High-quality development of sites at the professional level.
+                Building robust and scalable server-side solutions, ensuring
+                secure, fast, and efficient functionality for your web
+                applications.
               </p>
             </div>
           </li>
@@ -74,7 +73,51 @@ function About({ activeMenu }) {
               <h4 className={`h4 ${styles.service__item_title}`}>Database</h4>
 
               <p className={styles.service__item_text}>
-                Highly skilled for database management and API integration.
+                Designing and managing efficient databases to store, organize,
+                and retrieve data, providing seamless data flow and integration.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section className={styles.service}>
+        <h3 className={`h3 ${styles.service__title}`}>Professional Network</h3>
+
+        <ul className={styles.service__list}>
+          <li className={styles.service__item}>
+            <div className={styles.service__icon_box}>
+              <Image src={fiverr} alt="design icon" width="40" />
+            </div>
+
+            <div className={styles.service__content_box}>
+              <h4 className={`h4 ${styles.service__item_title}`}>Fiverr</h4>
+
+              <p className={styles.service__item_text}>
+                Explore my services on Fiverr, where I deliver professional web
+                development solutions tailored to your project needs.{" "}
+                <Link href="https://www.fiverr.com/hridoy_saha">
+                  Explore now
+                </Link>
+              </p>
+            </div>
+          </li>
+
+          <li className={styles.service__item}>
+            <div className={styles.service__icon_box}>
+              <Image src={linkedin} alt="design icon" width="40" />
+            </div>
+
+            <div className={styles.service__content_box}>
+              <h4 className={`h4 ${styles.service__item_title}`}>LinkedIn</h4>
+
+              <p className={styles.service__item_text}>
+                Connect with me on LinkedIn to view my professional journey,
+                network, and explore opportunities for collaboration.{" "}
+                <Link href="https://www.linkedin.com/in/b2c/">
+                  {" "}
+                  Explore now
+                </Link>
               </p>
             </div>
           </li>

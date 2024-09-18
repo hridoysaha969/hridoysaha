@@ -2,13 +2,17 @@
 import styles from "@/styles/aside.module.css";
 import Image from "next/image";
 import heroImg from "@/assets/hridoy-saha.jpg";
+import fb from "@/assets/fb.png";
+import insta from "@/assets/instagram.png";
+import x from "@/assets/x.png";
+import gmail from "@/assets/gmail.png";
+import phone from "@/assets/phone.png";
+import calendar from "@/assets/calender.png";
+import location from "@/assets/location.png";
 import Link from "next/link";
 import {
   MdArrowDropDown,
   MdCalendarMonth,
-  MdHome,
-  MdMailOutline,
-  MdOutlineFacebook,
   MdOutlineLocalPhone,
   MdOutlinePlace,
 } from "react-icons/md";
@@ -46,7 +50,7 @@ function Aside() {
         <ul className={styles.contacts__list}>
           <li className={styles.contact__item}>
             <div className="icon-box">
-              <MdMailOutline />
+              <Image src={gmail} width={30} alt="Gmail" />
             </div>
 
             <div className={styles.contact__info}>
@@ -63,7 +67,7 @@ function Aside() {
 
           <li className={styles.contact__item}>
             <div className="icon-box">
-              <MdOutlineLocalPhone />
+              <Image src={phone} width={20} alt="Phone" />
             </div>
 
             <div className={styles.contact__info}>
@@ -78,26 +82,26 @@ function Aside() {
           <li className={styles.contact__item}>
             <div className="icon-box">
               {/* <ion-icon name="calendar-outline"></ion-icon> */}
-              <MdCalendarMonth />
+              <Image src={calendar} width={20} alt="Phone" />
             </div>
 
             <div className={styles.contact__info}>
               <p className={styles.contact__title}>Birthday</p>
 
-              <span>June 23, 1982</span>
+              <span>August 10, 2000</span>
             </div>
           </li>
 
           <li className={styles.contact__item}>
             <div className="icon-box">
               {/* <ion-icon name="location-outline"></ion-icon> */}
-              <MdOutlinePlace />
+              <Image src={location} width={40} alt="Phone" />
             </div>
 
             <div className={styles.contact__info}>
               <p className={styles.contact__title}>Location</p>
 
-              <address>Sacramento, California, USA</address>
+              <address>Balakhal-3611, Hajiganj, Chandpur</address>
             </div>
           </li>
         </ul>
@@ -106,23 +110,30 @@ function Aside() {
 
         <ul className={styles.social__list}>
           <li className={styles.social__item}>
-            <Link href="#" className={styles.social__link}>
-              {/* <ion-icon name="logo-facebook"></ion-icon> */}
-              <MdOutlineFacebook />
+            <Link
+              href="https://www.facebook.com/hridoysaha.official"
+              className={styles.social__link}
+            >
+              <Image src={fb} width={30} alt="facebook" />
             </Link>
           </li>
 
           <li className={styles.social__item}>
-            <Link href="#" className={styles.social__link}>
-              {/* <ion-icon name="logo-twitter"></ion-icon> */}
-              <MdHome />
+            <Link
+              href="https://www.instagram.com/b2c.org.bd/"
+              className={styles.social__link}
+            >
+              <Image src={insta} width={30} alt="instagram" />
             </Link>
           </li>
 
           <li className={styles.social__item}>
-            <Link href="#" className={styles.social__link}>
+            <Link
+              href="https://x.com/b2c_org_bd"
+              className={styles.social__link}
+            >
               {/* <ion-icon name="logo-instagram"></ion-icon> */}
-              <MdHome />
+              <Image src={x} width={30} alt="x.com" />
             </Link>
           </li>
         </ul>

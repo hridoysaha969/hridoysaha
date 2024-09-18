@@ -143,6 +143,9 @@
   color: var(--light-gray-70);
   font-size: 18px;
 }
+.social__item .social__link img {
+  width: 30px;
+}
 
 .social__item .social__link:hover {
   color: var(--light-gray);

@@ -67,6 +67,10 @@
   font-weight: var(--fw-3);
   line-height: 1.6;
 }
+.service__item_text a {
+  display: inline-block;
+  color: var(--orange-yellow-crayola);
+}
 
 @media (min-width: 580px) {
   .about .article__title {
