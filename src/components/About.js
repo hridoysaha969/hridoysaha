@@ -22,10 +22,9 @@ function About({ activeMenu }) {
       <section className={styles.about__text}>
         <p>
           I am a passionate Full Stack Developer with a focus in both front-end
-          and back-end development. Since starting my web design journey in
-          2020, I have continuously honed my skills through self-learning,
-          mastering modern web technologies to deliver clean and efficient
-          solutions.
+          and back-end development. Since starting my journey in 2020, I have
+          continuously honed my skills through self-learning, mastering modern
+          web technologies to deliver clean and efficient solutions.
         </p>
       </section>
 
