@@ -128,6 +128,13 @@ textarea.form__input::-webkit-resizer {
   background: var(--bg-gradient-jet);
 }
 
+.invalid__feedback {
+  color: red;
+  font-size: var(--fs-8);
+  display: block;
+  margin-top: 15px;
+}
+
 @media (min-width: 580px) {
   /**
    * #CONTACT

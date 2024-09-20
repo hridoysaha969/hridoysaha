@@ -2,6 +2,7 @@ import foodDeliver from "@/assets/projectImg/project-1.jpg";
 export const servicesArray = [
   {
     id: 1,
+    package: "hsbasic01",
     price: 29,
     title: "Basic",
     description: "Ideal for small projects or personal websites.",
@@ -25,6 +26,7 @@ export const servicesArray = [
   },
   {
     id: 2,
+    package: "hsstandard02",
     price: 199,
     title: "Standard",
     description:
@@ -56,6 +58,7 @@ export const servicesArray = [
   {
     id: 3,
     price: 699,
+    package: "hspremium03",
     title: "Premium",
     description:
       "A comprehensive solution for complex, high-performance web applications with advanced features.",

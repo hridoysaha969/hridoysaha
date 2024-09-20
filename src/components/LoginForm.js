@@ -1,24 +1,51 @@
 import styles from "@/styles/contact.module.css";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 function LoginForm({ activeMenu }) {
   const [loginObj, setLoginObj] = useState({
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   const handleChange = (e) => {
     setLoginObj({
       ...loginObj,
       [e.target.name]: e.target.value,
     });
+    setError("");
   };
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(loginObj);
-    setLoginObj({
-      email: "",
-      password: "",
+    setLoading(true);
+
+    if (!loginObj.email || !loginObj.password) {
+      setError("Email & Password are required.");
+      return false;
+    }
+
+    let response = await fetch("/api/login/", {
+      method: "POST",
+      body: JSON.stringify({ ...loginObj, order: true }),
     });
+    response = await response.json();
+
+    if (response.success) {
+      console.log(response);
+      setLoginObj({
+        email: "",
+        password: "",
+      });
+      router.push(`/?order=${true}`);
+      setLoading(false);
+    } else {
+      setError(response.message);
+      setLoading(false);
+    }
   };
+
   return (
     <article className={`contact ${activeMenu === "login" && "active"}`}>
       <header>
@@ -47,9 +74,14 @@ function LoginForm({ activeMenu }) {
             required
             onChange={handleChange}
           />
+          {error && <span className={styles.invalid__feedback}>{error}</span>}
 
           <div className={styles.btn__wrapper}>
-            <button className={styles.form__btn} type="submit">
+            <button
+              className={styles.form__btn}
+              type="submit"
+              disabled={loading}
+            >
               {/* <MdOutlineSend /> */}
               <span>Login</span>
             </button>

@@ -1,27 +1,53 @@
 import styles from "@/styles/contact.module.css";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 function SignupForm({ activeMenu }) {
   const [signupObj, setSignupObj] = useState({
     fullName: "",
     email: "",
     password: "",
+    role: "user",
     aggrement: true,
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const handleChange = (e) => {
     setSignupObj({
       ...signupObj,
       [e.target.name]: e.target.value,
     });
+    setError("");
   };
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    console.log(signupObj);
-    setSignupObj({
-      fullName: "",
-      email: "",
-      password: "",
-      aggrement: true,
+    setLoading(true);
+    const { fullName, email, password, aggrement } = signupObj;
+    if ((!fullName || !email, !password, !aggrement)) {
+      setError("All the fields are required.");
+      return false;
+    }
+
+    let res = await fetch("/api/signup/", {
+      method: "POST",
+      body: JSON.stringify({ ...signupObj, order: true }),
     });
+    res = await res.json();
+    if (res.success) {
+      console.log(res);
+      setSignupObj({
+        fullName: "",
+        email: "",
+        password: "",
+        role: "user",
+        aggrement: true,
+      });
+      router.push("/");
+      setLoading(false);
+    } else {
+      setError(res.message);
+      setLoading(false);
+    }
   };
   return (
     <article className={`contact ${activeMenu === "signup" && "active"}`}>
@@ -61,10 +87,14 @@ function SignupForm({ activeMenu }) {
             required
             onChange={handleChange}
           />
+          {error && <span className={styles.invalid__feedback}>{error}</span>}
 
           <div className={styles.btn__wrapper}>
-            <button className={styles.form__btn} type="submit">
-              {/* <MdOutlineSend /> */}
+            <button
+              className={styles.form__btn}
+              type="submit"
+              disabled={loading}
+            >
               <span>Signup</span>
             </button>
           </div>
