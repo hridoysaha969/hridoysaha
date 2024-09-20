@@ -38,7 +38,7 @@ function LoginForm({ activeMenu }) {
         email: "",
         password: "",
       });
-      router.push(`/?order=${true}`);
+      router.push(`/`);
       setLoading(false);
     } else {
       setError(response.message);

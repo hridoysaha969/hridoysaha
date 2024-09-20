@@ -2,22 +2,13 @@
 import styles from "@/app/page.module.css";
 import Navbar from "./Navbar";
 import About from "./About";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Resume from "./Resume";
 import Portfolio from "./Portfolio";
 import Services from "./Services";
 import Contact from "./Contact";
-import { useSearchParams } from "next/navigation";
 function MainContent() {
   const [activeMenu, setActiveMenu] = useState("about");
-  const searchParams = useSearchParams();
-  const query = searchParams.get("order");
-
-  useEffect(() => {
-    if (query) {
-      setActiveMenu("services");
-    }
-  }, [query]);
 
   return (
     <div className={styles.main__content}>
