@@ -172,12 +172,6 @@
   font-weight: var(--fw-300);
 }
 
-@media (min-width: 580px) {
-  .filter__select_box {
-    display: none;
-  }
-}
-
 @media (min-width: 768px) {
   /**
    * PORTFOLIO
@@ -206,6 +200,9 @@
 
   .filter__item button.active {
     color: var(--orange-yellow-crayola);
+  }
+  .filter__select_box {
+    display: none;
   }
   /* portfolio and blog grid */
 

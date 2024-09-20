@@ -1,5 +1,10 @@
 import styles from "@/styles/services.module.css";
+import { useRouter } from "next/navigation";
 function ServiceItem({ service }) {
+  const router = useRouter();
+  const handleOrder = () => {
+    router.push("/login");
+  };
   return (
     <li className={styles.service__item}>
       <div className={styles.card__pricing}>
@@ -24,7 +29,7 @@ function ServiceItem({ service }) {
           ))}
         </ol>
 
-        <button className={styles.btn__order}>
+        <button className={styles.btn__order} onClick={handleOrder}>
           <span>Order Now</span>
         </button>
       </div>

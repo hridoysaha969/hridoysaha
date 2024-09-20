@@ -3,8 +3,15 @@ import Link from "next/link";
 import { MdArrowDropDown, MdOutlineRemoveRedEye } from "react-icons/md";
 import img from "@/assets/projectImg/project-1.jpg";
 import Image from "next/image";
+import { useState } from "react";
 
 function Portfolio({ activeMenu }) {
+  const [filterSelect, setFilterSelect] = useState("all");
+  const [selected, setSelected] = useState("");
+  const [showOption, setShowOption] = useState(false);
+  const handleFilterChange = (category) => {
+    setFilterSelect(category);
+  };
   return (
     <article className={`portfolio ${activeMenu === "portfolio" && "active"}`}>
       <header>
@@ -16,20 +23,42 @@ function Portfolio({ activeMenu }) {
       <section className="projects">
         <ul className={styles.filter__list}>
           <li className={styles.filter__item}>
-            <button className={styles.active}>All</button>
+            <button
+              className={filterSelect === "all" ? styles.active : null}
+              onClick={() => handleFilterChange("all")}
+            >
+              All
+            </button>
           </li>
           <li className={styles.filter__item}>
-            <button>Web Design</button>
+            <button
+              className={filterSelect === "web-design" ? styles.active : null}
+              onClick={() => handleFilterChange("web-design")}
+            >
+              Web Design
+            </button>
           </li>
           <li className={styles.filter__item}>
-            <button>Web Development</button>
+            <button
+              className={
+                filterSelect === "web-development" ? styles.active : null
+              }
+              onClick={() => handleFilterChange("web-development")}
+            >
+              Web Development
+            </button>
           </li>
         </ul>
 
         <div className={styles.filter__select_box}>
-          <button className={styles.filter__select} data-select>
+          <button
+            className={`${styles.filter__select} ${
+              showOption && styles.active
+            }`}
+            onClick={() => setShowOption(!showOption)}
+          >
             <div className={styles.select__value} data-selecct-value>
-              Select category
+              {selected ? selected : "Select category"}
             </div>
 
             <div className={styles.select__icon}>
@@ -39,15 +68,39 @@ function Portfolio({ activeMenu }) {
 
           <ul className={styles.select__list}>
             <li className={styles.select__item}>
-              <button data-select-item>All</button>
+              <button
+                onClick={() => {
+                  setSelected("All");
+                  setShowOption(!showOption);
+                  handleFilterChange("all");
+                }}
+              >
+                All
+              </button>
             </li>
 
             <li className={styles.select__item}>
-              <button data-select-item>Web design</button>
+              <button
+                onClick={() => {
+                  setSelected("Web Design");
+                  setShowOption(!showOption);
+                  handleFilterChange("web-design");
+                }}
+              >
+                Web design
+              </button>
             </li>
 
             <li className={styles.select__item}>
-              <button data-select-item>Web development</button>
+              <button
+                onClick={() => {
+                  setSelected("Web Development");
+                  setShowOption(!showOption);
+                  handleFilterChange("web-development");
+                }}
+              >
+                Web development
+              </button>
             </li>
           </ul>
         </div>

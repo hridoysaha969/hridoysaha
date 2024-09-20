@@ -30,7 +30,7 @@ function Contact({ activeMenu }) {
         <h2 className={`h2 article-title ${styles.article__title}`}>Contact</h2>
       </header>
 
-      <section className={styles.mapbox} data-mapbox>
+      <section className={styles.mapbox}>
         <figure>
           <iframe
             src="https://maps.google.com/maps?q=balakhal&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
