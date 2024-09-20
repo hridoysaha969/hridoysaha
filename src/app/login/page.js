@@ -11,3 +11,11 @@ function page() {
 }
 
 export default page;
+
+export function generateMetadata() {
+  return {
+    title: "Login | Hridoy Saha's Web Development Services",
+    description:
+      "Login to Hridoy Saha's web development platform to access personalized services, project management, and more. Secure and seamless login experience.",
+  };
+}

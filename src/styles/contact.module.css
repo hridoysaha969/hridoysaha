@@ -66,7 +66,15 @@ textarea.form__input::-webkit-resizer {
 .form__input:focus:invalid {
   border-color: var(--bittersweet-shimmer);
 }
-
+.input__label {
+  display: block;
+  margin: 15px 0;
+  color: var(--white-2);
+  font-size: var(--fs-7);
+}
+.btn__wrapper {
+  margin-top: 15px;
+}
 .form__btn {
   position: relative;
   width: 100%;
