@@ -28,7 +28,7 @@ function SignupForm({ activeMenu }) {
       return false;
     }
 
-    let res = await fetch("/api/signup/", {
+    let res = await fetch("https://hridoysaha.netlify.app/api/signup/", {
       method: "POST",
       body: JSON.stringify(signupObj),
       headers: { "Content-Type": "application/json" },
