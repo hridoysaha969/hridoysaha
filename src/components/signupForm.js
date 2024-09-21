@@ -30,6 +30,7 @@ function SignupForm({ activeMenu }) {
 
     let res = await fetch("/api/signup/", {
       method: "POST",
+      mode: "no-cors",
       body: JSON.stringify(signupObj),
     });
     res = await res.json();

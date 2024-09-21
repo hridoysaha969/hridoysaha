@@ -28,6 +28,7 @@ function LoginForm({ activeMenu }) {
 
     let response = await fetch("/api/login/", {
       method: "POST",
+      mode: "no-cors",
       body: JSON.stringify(loginObj),
     });
     response = await response.json();
