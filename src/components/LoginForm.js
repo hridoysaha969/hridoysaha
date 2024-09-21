@@ -32,7 +32,6 @@ function LoginForm({ activeMenu }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(loginObj),
-      redirect: "follow",
     });
     response = await response.json();
 
