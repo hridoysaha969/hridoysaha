@@ -26,13 +26,16 @@ function LoginForm({ activeMenu }) {
       return false;
     }
 
-    let response = await fetch("/api/login/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginObj),
-    });
+    let response = await fetch(
+      "https://hridoysaha.netlify.app/.netlify/functions/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginObj),
+      }
+    );
     response = await response.json();
 
     if (response.success) {

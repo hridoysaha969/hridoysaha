@@ -28,13 +28,16 @@ function SignupForm({ activeMenu }) {
       return false;
     }
 
-    let res = await fetch("/api/signup/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(signupObj),
-    });
+    let res = await fetch(
+      "https://hridoysaha.netlify.app/.netlify/functions/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signupObj),
+      }
+    );
 
     res = await res.json();
     if (res.success) {
