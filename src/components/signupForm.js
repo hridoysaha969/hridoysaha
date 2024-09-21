@@ -31,6 +31,7 @@ function SignupForm({ activeMenu }) {
     let res = await fetch("/api/signup/", {
       method: "POST",
       body: JSON.stringify(signupObj),
+      headers: { "Content-Type": "application/json" },
     });
     res = await res.json();
     if (res.success) {
