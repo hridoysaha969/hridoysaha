@@ -9,9 +9,9 @@ import mongoose from "mongoose";
 export async function POST(req) {
   const payload = await req.json();
   // await mongoose.connect(connectionStr);
-  // await dbConnect();
+  await dbConnect();
 
-  // const user = await User.findOne({ email: payload.email });
+  const user = await User.findOne({ email: payload.email });
   // if (!user) {
   //   return NextResponse.json(
   //     { message: "Invalid email", success: false },
@@ -57,7 +57,7 @@ export async function POST(req) {
   //   { status: 200 }
   // );
 
-  return NextResponse.json({ body: payload, success: true });
+  return NextResponse.json({ body: user, success: true });
 
   // const response = NextResponse.json(
   //   { token, message: "Logged in successfully", success: true },
