@@ -4,6 +4,7 @@ import { servicesArray } from "@/lib/constant";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import Image from "next/image";
 import img from "@/assets/projectImg/project-1.jpg";
+import gig1 from "@/assets/gig-1.jpg";
 import Link from "next/link";
 
 function Blog({ activeMenu }) {
@@ -36,7 +37,11 @@ function Blog({ activeMenu }) {
                   <MdOutlineRemoveRedEye />
                 </div>
 
-                <Image src={img} alt="finance" loading="lazy" />
+                <Image
+                  src={gig1}
+                  alt="Product upload - Hridoy Saha"
+                  loading="lazy"
+                />
               </figure>
 
               <h3 className={styles.project__title}>
