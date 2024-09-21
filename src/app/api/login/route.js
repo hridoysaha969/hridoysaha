@@ -10,8 +10,13 @@ export async function POST(req) {
   const payload = await req.json();
   // await mongoose.connect(connectionStr);
   await dbConnect();
+  try {
+    const user = await User.findOne({ email: payload.email });
+    return NextResponse.json({ body: user, success: true });
+  } catch (err) {
+    return NextResponse.json({ body: err.message, success: false });
+  }
 
-  const user = await User.findOne({ email: payload.email });
   // if (!user) {
   //   return NextResponse.json(
   //     { message: "Invalid email", success: false },
@@ -56,8 +61,6 @@ export async function POST(req) {
   //   { token, message: "Logged in successfully", success: true },
   //   { status: 200 }
   // );
-
-  return NextResponse.json({ body: user, success: true });
 
   // const response = NextResponse.json(
   //   { token, message: "Logged in successfully", success: true },
