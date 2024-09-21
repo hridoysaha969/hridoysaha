@@ -1,8 +1,13 @@
-[build]
+  [build]
   command = "npm run build"
-  publish = "out"  # This is where your static files will be published after the build. Make sure it's correct for your project (usually `out` for Next.js).
-
+  publish = ".next"
+  
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

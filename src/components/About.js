@@ -6,7 +6,6 @@ import database from "@/assets/database.png";
 import fiverr from "@/assets/fiverr.png";
 import linkedin from "@/assets/linkedin.png";
 import Link from "next/link";
-import { MdLink } from "react-icons/md";
 
 function About({ activeMenu }) {
   return (
@@ -93,7 +92,7 @@ function About({ activeMenu }) {
               <h4 className={`h4 ${styles.service__item_title}`}>Fiverr</h4>
 
               <p className={styles.service__item_text}>
-                Explore my services on Fiverr, where I deliver professional web
+                Explore my services on Fiverr, Where I deliver professional web
                 development solutions tailored to your project needs.{" "}
                 <Link href="https://www.fiverr.com/hridoy_saha">
                   Explore now

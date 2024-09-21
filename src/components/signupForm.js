@@ -34,15 +34,8 @@ function SignupForm({ activeMenu }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(signupObj),
+      redirect: "follow",
     });
-
-    // const res = await fetch(`/api/signup`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(signupData),
-    // });
 
     res = await res.json();
     if (res.success) {
