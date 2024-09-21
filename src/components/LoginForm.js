@@ -26,7 +26,7 @@ function LoginForm({ activeMenu }) {
       return false;
     }
 
-    let response = await fetch("https://hridoysaha.netlify.app/api/login/", {
+    let response = await fetch("/api/login/", {
       method: "POST",
       body: JSON.stringify(loginObj),
     });
