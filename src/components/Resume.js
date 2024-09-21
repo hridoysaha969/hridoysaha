@@ -13,6 +13,7 @@ import mongodb from "@/assets/mongodb.png";
 import vscode from "@/assets/vscode.png";
 import git from "@/assets/git.png";
 import github from "@/assets/github.png";
+import postman from "@/assets/postman.svg";
 import Link from "next/link";
 import {
   MdBusinessCenter,
@@ -227,6 +228,10 @@ function Resume({ activeMenu }) {
               <div className={styles.timeline__skill}>
                 <Image src={github} width={30} alt="GitHub" />
                 <span>GitHub</span>
+              </div>
+              <div className={styles.timeline__skill}>
+                <Image src={postman} width={30} alt="GitHub" />
+                <span>Postman</span>
               </div>
             </div>
           </li>

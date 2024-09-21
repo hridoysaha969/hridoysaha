@@ -1,13 +1,15 @@
-import dbConnect from "@/lib/connection";
+import dbConnect, { connectionStr } from "@/lib/connection";
 import { User } from "@/lib/models/User";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
+import mongoose from "mongoose";
 
 export async function POST(req) {
   const payload = await req.json();
-  await dbConnect();
+  // await dbConnect();
+  await mongoose.connect(connectionStr);
 
   // Checking if the email is exists or not
   const existingUser = await User.findOne({ email: payload.email });
