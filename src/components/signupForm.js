@@ -30,7 +30,7 @@ function SignupForm({ activeMenu }) {
 
     let res = await fetch("/api/signup/", {
       method: "POST",
-      body: JSON.stringify({ ...signupObj, order: true }),
+      body: JSON.stringify(signupObj),
     });
     res = await res.json();
     if (res.success) {

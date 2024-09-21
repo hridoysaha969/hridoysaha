@@ -28,7 +28,7 @@ function LoginForm({ activeMenu }) {
 
     let response = await fetch("/api/login/", {
       method: "POST",
-      body: JSON.stringify({ ...loginObj, order: true }),
+      body: JSON.stringify(loginObj),
     });
     response = await response.json();
 

@@ -3,7 +3,6 @@ import { User } from "@/lib/models/User";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import Cookies from "js-cookie";
 import { cookies } from "next/headers";
 
 export async function POST(req) {
@@ -38,7 +37,6 @@ export async function POST(req) {
       email: user.email,
       userID: user._id,
       role: user.role,
-      order: payload.order,
     },
     process.env.JWT_SECRET,
     { expiresIn: "1h" }
