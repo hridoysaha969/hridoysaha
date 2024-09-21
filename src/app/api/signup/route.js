@@ -1,4 +1,4 @@
-import dbConnect, { connectionStr } from "@/lib/connection";
+import { connectionStr } from "@/lib/connection";
 import { User } from "@/lib/models/User";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 
 export async function POST(req) {
   const payload = await req.json();
-  // await dbConnect();
   await mongoose.connect(connectionStr);
 
   // Checking if the email is exists or not
@@ -45,17 +44,31 @@ export async function POST(req) {
   );
 
   // Set the JWT as a cookie using JS_COOKIE
-  const cookieStore = cookies();
-  cookieStore.set("_hs_User_access_token", token, {
+  // const cookieStore = cookies();
+  // cookieStore.set("_hs_User_access_token", token, {
+  //   httpOnly: true,
+  //   secure: process.env.NODE_ENV !== "development", // Use 'secure' in production
+  //   maxAge: 3600 * 24 * 7, // 1 hour in seconds
+  //   sameSite: "strict",
+  //   path: "/",
+  // });
+
+  // return NextResponse.json(
+  //   { message: "New user has been created", success: true },
+  //   { status: 201 }
+  // );
+  const response = NextResponse.json(
+    { message: "New user has been created", success: true },
+    { status: 201 }
+  );
+
+  response.cookies.set("_hs_User_access_token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV !== "development", // Use 'secure' in production
-    maxAge: 3600 * 24 * 7, // 1 hour in seconds
+    secure: process.env.NODE_ENV !== "development",
+    maxAge: 3600 * 24 * 7, // 1 week
     sameSite: "strict",
     path: "/",
   });
 
-  return NextResponse.json(
-    { message: "New user has been created", success: true },
-    { status: 201 }
-  );
+  return response;
 }

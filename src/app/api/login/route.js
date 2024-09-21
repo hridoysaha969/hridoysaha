@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 
 export async function POST(req) {
   const payload = await req.json();
-  // await dbConnect();
   await mongoose.connect(connectionStr);
 
   const user = await User.findOne({ email: payload.email });
@@ -43,17 +42,32 @@ export async function POST(req) {
   );
 
   // Set the JWT as a cookie using JS_COOKIE
-  const cookieStore = cookies();
-  cookieStore.set("_hs_User_access_token", token, {
+  // const cookieStore = cookies();
+  // cookieStore.set("_hs_User_access_token", token, {
+  //   httpOnly: true,
+  //   secure: process.env.NODE_ENV !== "development", // Use 'secure' in production
+  //   maxAge: 3600 * 24 * 7, // 1 hour in seconds
+  //   sameSite: "strict",
+  //   path: "/",
+  // });
+
+  // return NextResponse.json(
+  //   { token, message: "Logged in successfully", success: true },
+  //   { status: 200 }
+  // );
+
+  const response = NextResponse.json(
+    { token, message: "Logged in successfully", success: true },
+    { status: 200 }
+  );
+
+  response.cookies.set("_hs_User_access_token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV !== "development", // Use 'secure' in production
-    maxAge: 3600 * 24 * 7, // 1 hour in seconds
+    secure: process.env.NODE_ENV !== "development",
+    maxAge: 3600 * 24 * 7, // 1 week
     sameSite: "strict",
     path: "/",
   });
 
-  return NextResponse.json(
-    { token, message: "Logged in successfully", success: true },
-    { status: 200 }
-  );
+  return response;
 }
