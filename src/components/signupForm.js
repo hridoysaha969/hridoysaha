@@ -30,9 +30,20 @@ function SignupForm({ activeMenu }) {
 
     let res = await fetch("https://hridoysaha.netlify.app/api/signup/", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(signupObj),
-      headers: { "Content-Type": "application/json" },
     });
+
+    // const res = await fetch(`/api/signup`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(signupData),
+    // });
+
     res = await res.json();
     if (res.success) {
       console.log(res);

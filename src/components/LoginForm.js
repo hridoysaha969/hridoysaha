@@ -28,8 +28,10 @@ function LoginForm({ activeMenu }) {
 
     let response = await fetch("https://hridoysaha.netlify.app/api/login/", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(loginObj),
-      headers: { "Content-Type": "application/json" },
     });
     response = await response.json();
 
