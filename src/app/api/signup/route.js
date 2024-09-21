@@ -1,4 +1,4 @@
-import dbConnect, { connectionStr } from "@/lib/connection";
+import dbConnect from "@/lib/connection";
 import { User } from "@/lib/models/User";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 
 export async function POST(req) {
   const payload = await req.json();
-  // await mongoose.connect(connectionStr);
   await dbConnect();
 
   // Checking if the email is exists or not
@@ -58,6 +57,7 @@ export async function POST(req) {
   //   { message: "New user has been created", success: true },
   //   { status: 201 }
   // );
+
   const response = NextResponse.json(
     { message: "New user has been created", success: true },
     { status: 201 }
