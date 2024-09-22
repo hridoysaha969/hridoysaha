@@ -100,7 +100,7 @@ function SignupForm({ activeMenu }) {
               type="submit"
               disabled={loading}
             >
-              <span>Signup</span>
+              {loading ? <span>Signing up...</span> : <span>Signup</span>}
             </button>
           </div>
         </form>

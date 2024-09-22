@@ -1,5 +1,4 @@
 import { jwtVerify } from "jose";
-import Cookies from "js-cookie";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 

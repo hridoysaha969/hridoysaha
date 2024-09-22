@@ -3,7 +3,8 @@ import { useRouter } from "next/navigation";
 function ServiceItem({ service }) {
   const router = useRouter();
   const handleOrder = () => {
-    router.push("/login");
+    router.push(`/checkout`);
+    // setActiveMenu(id);
   };
   return (
     <li className={styles.service__item}>
@@ -29,7 +30,7 @@ function ServiceItem({ service }) {
           ))}
         </ol>
 
-        <button className={styles.btn__order} onClick={handleOrder}>
+        <button className={styles.btn__order} onClick={() => handleOrder()}>
           <span>Order Now</span>
         </button>
       </div>

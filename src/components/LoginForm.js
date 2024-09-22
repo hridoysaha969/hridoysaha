@@ -86,8 +86,7 @@ function LoginForm({ activeMenu }) {
               type="submit"
               disabled={loading}
             >
-              {/* <MdOutlineSend /> */}
-              <span>Login</span>
+              {loading ? <span>Logging in...</span> : <span>Login</span>}
             </button>
           </div>
         </form>

@@ -1,10 +1,12 @@
-import React from "react";
-
+import styles from "@/app/page.module.css";
+import Aside from "@/components/Aside";
+import CheckoutContent from "@/components/CheckoutContent";
 function page() {
   return (
-    <div>
-      <h1>Checkout</h1>
-    </div>
+    <main className={styles.main}>
+      <Aside />
+      <CheckoutContent />
+    </main>
   );
 }
 
