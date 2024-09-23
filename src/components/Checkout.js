@@ -139,12 +139,12 @@ function Checkout({ pId }) {
                             }}
                             required
                           />
-                          {(error && !paymentObj.number) ||
-                            (!paymentObj.trxId && (
+                          {error &&
+                            (!paymentObj.number || !paymentObj.trxId) && (
                               <span className={styles.invalid__feedback}>
                                 {error}
                               </span>
-                            ))}
+                            )}
                         </div>
                       </div>
                     </li>
