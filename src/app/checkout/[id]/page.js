@@ -13,3 +13,10 @@ function page({ params }) {
 }
 
 export default page;
+
+export function generateMetadata() {
+  return {
+    title: "Checkout | Hridoy Saha's Web Development Services",
+    description: "Checkout your orders and other necessaries",
+  };
+}

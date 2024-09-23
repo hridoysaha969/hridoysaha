@@ -1,6 +1,5 @@
 import { servicesArray } from "@/lib/constant";
 import styles from "@/styles/checkout.module.css";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
 function Checkout({ pId }) {
@@ -20,6 +19,7 @@ function Checkout({ pId }) {
     setSelectedPackage(services[0]);
     setLoading(false);
   }, [pId]);
+
   const handlePlaceOrder = () => {
     if (method === "bkash") {
       if (!paymentObj.number || !paymentObj.trxId) {
@@ -27,12 +27,22 @@ function Checkout({ pId }) {
         return false;
       }
       console.log("Order complete with bkash", paymentObj);
+      setPaymentObj({
+        number: "",
+        trxId: "",
+        email: "",
+      });
     } else if (method === "payoneer") {
       if (!paymentObj.email) {
         setError("Provide valid email");
         return false;
       }
       console.log("Order complete with Payoneer", paymentObj);
+      setPaymentObj({
+        number: "",
+        trxId: "",
+        email: "",
+      });
     }
   };
 
