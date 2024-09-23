@@ -132,6 +132,21 @@
 .form__input:focus:invalid {
   border-color: var(--bittersweet-shimmer);
 }
+.btn__order {
+  padding: 10px 30px;
+  background: var(--orange-yellow-crayola);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  color: var(--white-2);
+  display: block;
+  text-align: center;
+}
+.btn__order:disabled {
+  background: gray;
+}
 @media (min-width: 580px) {
   .timeline__list {
     margin-left: 65px;
