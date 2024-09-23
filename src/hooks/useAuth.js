@@ -1,17 +1,20 @@
 "use client";
-
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
-import { jwtVerify } from "jose";
+const { useState, useEffect } = require("react");
 
-function useAuth() {
+const useAuth = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
-
+  const token = Cookies.get("_hs_User_access_token");
   useEffect(() => {
-    const token = Cookies.get("_hs_User_access_token");
-  }, []);
+    console.log(token);
+    if (token) {
+      setIsLoggedin(true);
+    } else {
+      setIsLoggedin(false);
+    }
+  }, [token]);
 
-  return <div>useAuth</div>;
-}
+  return isLoggedin;
+};
 
 export default useAuth;

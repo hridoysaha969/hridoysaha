@@ -39,7 +39,7 @@ export async function POST(req) {
       role: user.role,
     },
     process.env.JWT_SECRET,
-    { expiresIn: "1h" }
+    { expiresIn: "12h" }
   );
 
   // Set the JWT as a cookie using JS_COOKIE

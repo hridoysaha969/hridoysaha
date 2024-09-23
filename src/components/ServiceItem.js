@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 function ServiceItem({ service }) {
   const router = useRouter();
   const handleOrder = () => {
-    router.push(`/checkout`);
+    router.push(`/checkout?package=${service.package}`);
     // setActiveMenu(id);
   };
   return (

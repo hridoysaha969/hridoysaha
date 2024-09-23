@@ -1,9 +1,17 @@
+import { servicesArray } from "@/lib/constant";
 import styles from "@/styles/checkout.module.css";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
 function Checkout() {
+  const [selectedPackage, setSelectedPackage] = useState();
   const [method, setMethod] = useState("");
-  console.log(method);
+  const searchParams = useSearchParams();
+  const packageId = searchParams.get("package");
+  useEffect(() => {
+    const services = servicesArray.filter((item) => item.package === packageId);
+    setSelectedPackage(services[0]);
+  }, [packageId]);
 
   return (
     <article className={`contact active`}>
@@ -24,13 +32,17 @@ function Checkout() {
 
         <ol className={styles.timeline__list}>
           <li className={styles.timeline__item}>
-            <h4 className={`h4 ${styles.timeline__item_title}`}>Basic</h4>
+            <h4 className={`h4 ${styles.timeline__item_title}`}>
+              {selectedPackage?.title}
+            </h4>
 
-            <span>{"$"}29</span>
+            <span>
+              {"$"}
+              {selectedPackage?.price}
+            </span>
 
             <p className={styles.timeline__text}>
-              A comprehensive solution for complex, high-performance web
-              applications with advanced features.
+              {selectedPackage?.description}
             </p>
           </li>
           <li className={styles.timeline__item}>
@@ -78,11 +90,11 @@ function Checkout() {
                         />
                       </div>
                       <div>
-                        <span>bKash Number</span>
+                        <span>Transaction ID</span>
                         <input
-                          type="number"
+                          type="text"
                           className={styles.form__input}
-                          placeholder="017XXXXXXXX"
+                          placeholder="TrnxID"
                         />
                       </div>
                     </div>

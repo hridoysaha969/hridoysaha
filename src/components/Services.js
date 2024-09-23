@@ -1,3 +1,4 @@
+// "use client";
 import styles from "@/styles/services.module.css";
 import ServiceItem from "./ServiceItem";
 import { servicesArray } from "@/lib/constant";
@@ -9,13 +10,38 @@ import Link from "next/link";
 
 function Blog({ activeMenu }) {
   const services = servicesArray;
+
   return (
     <article className={`blog ${activeMenu === "services" && "active"}`}>
       <header>
-        <h2 className="h2 article-title">Services</h2>
+        <h2 className={`h2 article-title ${styles.article__title}`}>
+          Services
+        </h2>
       </header>
 
       <section className={styles.service}>
+        {/* {isLoggedin && (
+          <ul className={styles.filter__list}>
+            <li className={styles.filter__item}>
+              <button
+                className={filterSelect === "all" ? styles.active : null}
+                onClick={() => handleFilterChange("all")}
+              >
+                My Profile
+              </button>
+            </li>
+            <li className={styles.filter__item}>
+              <button
+                className={filterSelect === "web-design" ? styles.active : null}
+                onClick={() => handleFilterChange("web-design")}
+              >
+                Logout
+                <MdLogout />
+              </button>
+            </li>
+          </ul>
+        )} */}
+
         <ul className={styles.service__list}>
           {services.map((service, ind) => (
             <ServiceItem key={ind} service={service} />
