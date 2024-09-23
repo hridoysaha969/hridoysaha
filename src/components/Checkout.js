@@ -3,7 +3,7 @@ import styles from "@/styles/checkout.module.css";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MdShoppingCart } from "react-icons/md";
-function Checkout() {
+function Checkout({ pId }) {
   const [paymentObj, setPaymentObj] = useState({
     number: "",
     trxId: "",
@@ -12,14 +12,14 @@ function Checkout() {
   const [selectedPackage, setSelectedPackage] = useState();
   const [method, setMethod] = useState("");
   const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
-  const packageId = searchParams.get("package");
+  // const searchParams = useSearchParams();
+  // const packageId = searchParams.get("package");
   useEffect(() => {
     setLoading(true);
-    const services = servicesArray.filter((item) => item.package === packageId);
+    const services = servicesArray.filter((item) => item.package === pId);
     setSelectedPackage(services[0]);
     setLoading(false);
-  }, [packageId]);
+  }, [pId]);
   const handlePlaceOrder = () => {
     if (method === "bkash") {
       console.log("Order complete with bkash", paymentObj);

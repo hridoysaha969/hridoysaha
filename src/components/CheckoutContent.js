@@ -3,7 +3,7 @@ import styles from "@/app/page.module.css";
 import styles2 from "@/styles/navbar.module.css";
 import { useRouter } from "next/navigation";
 import Checkout from "./Checkout";
-function CheckoutContent() {
+function CheckoutContent({ pId }) {
   const router = useRouter();
 
   return (
@@ -21,7 +21,7 @@ function CheckoutContent() {
         </ul>
       </nav>
 
-      <Checkout />
+      <Checkout pId={pId} />
     </div>
   );
 }
