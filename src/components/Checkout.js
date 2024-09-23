@@ -12,8 +12,8 @@ function Checkout({ pId }) {
   const [selectedPackage, setSelectedPackage] = useState();
   const [method, setMethod] = useState("");
   const [loading, setLoading] = useState(false);
-  // const searchParams = useSearchParams();
-  // const packageId = searchParams.get("package");
+  const [error, setError] = useState("");
+
   useEffect(() => {
     setLoading(true);
     const services = servicesArray.filter((item) => item.package === pId);
@@ -22,8 +22,16 @@ function Checkout({ pId }) {
   }, [pId]);
   const handlePlaceOrder = () => {
     if (method === "bkash") {
+      if (!paymentObj.number || !paymentObj.trxId) {
+        setError("Provide Number & TrxId");
+        return false;
+      }
       console.log("Order complete with bkash", paymentObj);
     } else if (method === "payoneer") {
+      if (!paymentObj.email) {
+        setError("Provide valid email");
+        return false;
+      }
       console.log("Order complete with Payoneer", paymentObj);
     }
   };
@@ -104,12 +112,13 @@ function Checkout({ pId }) {
                             value={paymentObj.number}
                             className={styles.form__input}
                             placeholder="017XXXXXXXX"
-                            onChange={(e) =>
+                            onChange={(e) => {
                               setPaymentObj({
                                 ...paymentObj,
                                 number: e.target.value,
-                              })
-                            }
+                              });
+                              setError("");
+                            }}
                             required
                           />
                         </div>
@@ -121,14 +130,21 @@ function Checkout({ pId }) {
                             value={paymentObj.trxId}
                             className={styles.form__input}
                             placeholder="TrnxID"
-                            onChange={(e) =>
+                            onChange={(e) => {
                               setPaymentObj({
                                 ...paymentObj,
                                 trxId: e.target.value,
-                              })
-                            }
+                              });
+                              setError("");
+                            }}
                             required
                           />
+                          {(error && !paymentObj.number) ||
+                            (!paymentObj.trxId && (
+                              <span className={styles.invalid__feedback}>
+                                {error}
+                              </span>
+                            ))}
                         </div>
                       </div>
                     </li>
@@ -157,6 +173,11 @@ function Checkout({ pId }) {
                               })
                             }
                           />
+                          {error && !paymentObj.email && (
+                            <span className={styles.invalid__feedback}>
+                              {error}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </li>
