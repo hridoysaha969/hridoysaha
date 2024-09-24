@@ -4,8 +4,8 @@ import ServiceItem from "./ServiceItem";
 import { servicesArray } from "@/lib/constant";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import Image from "next/image";
-import img from "@/assets/projectImg/project-1.jpg";
-import gig1 from "@/assets/gig-1.jpg";
+import gig1 from "@/assets/fiverr_gig_1.jpg";
+import gig2 from "@/assets/fiverr_gig_2.jpg";
 import Link from "next/link";
 
 function Blog({ activeMenu }) {
@@ -86,7 +86,7 @@ function Blog({ activeMenu }) {
                   <MdOutlineRemoveRedEye />
                 </div>
 
-                <Image src={img} alt="finance" loading="lazy" />
+                <Image src={gig2} alt="finance" loading="lazy" />
               </figure>
 
               <h3 className={styles.project__title}>
