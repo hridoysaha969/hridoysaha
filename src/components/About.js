@@ -6,8 +6,9 @@ import database from "@/assets/database.png";
 import fiverr from "@/assets/fiverr.png";
 import linkedin from "@/assets/linkedin.png";
 import Link from "next/link";
+import { MdOutlineExplore } from "react-icons/md";
 
-function About({ activeMenu }) {
+function About({ activeMenu, setActiveMenu }) {
   return (
     <article
       className={`${styles.about} ${activeMenu === "about" ? "active" : null}`}
@@ -77,6 +78,16 @@ function About({ activeMenu }) {
             </div>
           </li>
         </ul>
+
+        <div className={styles.explore}>
+          <button
+            className={styles.form__btn}
+            onClick={() => setActiveMenu("services")}
+          >
+            <MdOutlineExplore />
+            <span>Explore More</span>
+          </button>
+        </div>
       </section>
 
       <section className={styles.service}>

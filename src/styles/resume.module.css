@@ -60,6 +60,10 @@
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
+.timeline__text a {
+  display: inline;
+  color: var(--orange-yellow-crayola);
+}
 .timeline__skills_wrapper {
   display: flex;
   align-items: center;

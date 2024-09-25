@@ -1,4 +1,5 @@
 import styles from "@/styles/navbar.module.css";
+import Link from "next/link";
 function Navbar({ activeMenu, setActiveMenu }) {
   return (
     <nav className={styles.navbar}>
@@ -36,13 +37,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
         </li>
 
         <li className={styles.navbar__item}>
-          <button
-            className={`${styles.navbar__link} ${
-              activeMenu === "services" && styles.active
-            }`}
-            onClick={() => setActiveMenu("services")}
-          >
-            Services
+          <button className={`${styles.navbar__link}`}>
+            <Link href="/blog">Blog</Link>
           </button>
         </li>
 

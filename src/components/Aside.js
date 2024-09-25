@@ -5,17 +5,13 @@ import heroImg from "@/assets/hridoy-saha.jpg";
 import fb from "@/assets/fb.png";
 import insta from "@/assets/instagram.png";
 import x from "@/assets/x.png";
+import yt from "@/assets/youtube.png";
 import gmail from "@/assets/gmail.png";
 import phone from "@/assets/phone.png";
 import calendar from "@/assets/calender.png";
 import location from "@/assets/location.png";
 import Link from "next/link";
-import {
-  MdArrowDropDown,
-  MdCalendarMonth,
-  MdOutlineLocalPhone,
-  MdOutlinePlace,
-} from "react-icons/md";
+import { MdArrowDropDown } from "react-icons/md";
 import { useState } from "react";
 function Aside() {
   const [showInfo, setShowInfo] = useState(false);
@@ -132,8 +128,15 @@ function Aside() {
               href="https://x.com/b2c_org_bd"
               className={styles.social__link}
             >
-              {/* <ion-icon name="logo-instagram"></ion-icon> */}
               <Image src={x} width={30} alt="x.com" />
+            </Link>
+          </li>
+          <li className={styles.social__item}>
+            <Link
+              href="https://www.youtube.com/@b2c_org_bd"
+              className={styles.social__link}
+            >
+              <Image src={yt} width={30} alt="x.com" />
             </Link>
           </li>
         </ul>

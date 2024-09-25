@@ -139,9 +139,12 @@ function Resume({ activeMenu }) {
             <span>June - August{`(2024)`}</span>
 
             <p className={styles.timeline__text}>
-              Worked with GreenRubino on a contract-based project, developing a
-              dynamic JavaScript fluid animation, delivering smooth and
-              interactive web experiences.
+              Worked with GreenRubino on a{" "}
+              <Link href="https://drive.google.com/file/d/1qiBakBFTxKm9GqSeEuVmYFLyvFstPE0Z/view?usp=sharing">
+                contract-based
+              </Link>{" "}
+              project, developing a dynamic JavaScript fluid animation,
+              delivering smooth and interactive web experiences.
             </p>
           </li>
         </ol>

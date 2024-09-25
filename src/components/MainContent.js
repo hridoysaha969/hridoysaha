@@ -13,7 +13,9 @@ function MainContent() {
   return (
     <div className={styles.main__content}>
       <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
-      {activeMenu === "about" && <About activeMenu={activeMenu} />}
+      {activeMenu === "about" && (
+        <About activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+      )}
       {activeMenu === "resume" && <Resume activeMenu={activeMenu} />}
       {activeMenu === "portfolio" && <Portfolio activeMenu={activeMenu} />}
       {activeMenu === "services" && <Services activeMenu={activeMenu} />}
