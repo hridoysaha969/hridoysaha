@@ -1,10 +1,12 @@
 import styles from "@/styles/services.module.css";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 function ServiceItem({ service }) {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const handleOrder = () => {
+    setLoading(true);
     router.push(`/checkout/${service.package}`);
-    // setActiveMenu(id);
   };
   return (
     <li className={styles.service__item}>
@@ -30,7 +32,11 @@ function ServiceItem({ service }) {
           ))}
         </ol>
 
-        <button className={styles.btn__order} onClick={() => handleOrder()}>
+        <button
+          className={styles.btn__order}
+          onClick={() => handleOrder()}
+          disabled={loading}
+        >
           <span>Order Now</span>
         </button>
       </div>

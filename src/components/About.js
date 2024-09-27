@@ -85,7 +85,7 @@ function About({ activeMenu, setActiveMenu }) {
             onClick={() => setActiveMenu("services")}
           >
             <MdOutlineExplore />
-            <span>Explore More</span>
+            <span>Explore Plans</span>
           </button>
         </div>
       </section>

@@ -176,6 +176,9 @@
   display: block;
   text-align: center;
 }
+.btn__order:disabled {
+  background: gray;
+}
 
 .project__list {
   display: grid;

@@ -2,8 +2,9 @@
 export const getServerSideProps = ({ res }) => {
   res.setHeader("Content-Type", "text/plain");
   res.write(`User-agent: *
-        Disallow: /admin
+        Disallow: /dashboard
         Allow: /login
+        Allow: /blog
         Allow: /`);
 
   res.end();

@@ -1,6 +1,7 @@
 import styles from "@/app/page.module.css";
 import Aside from "@/components/Aside";
 import CheckoutContent from "@/components/CheckoutContent";
+import { servicesArray } from "@/lib/constant";
 function page({ params }) {
   console.log(params.id);
 
@@ -14,9 +15,12 @@ function page({ params }) {
 
 export default page;
 
-export function generateMetadata() {
+export async function generateMetadata({ params }) {
+  const service = await servicesArray.filter(
+    (item) => item.package === params.id
+  );
   return {
-    title: "Checkout | Hridoy Saha's Web Development Services",
-    description: "Checkout your orders and other necessaries",
+    title: `${service[0].title} - Checkout | Hridoy Saha's Web Development Services`,
+    description: `${service[0].description}`,
   };
 }

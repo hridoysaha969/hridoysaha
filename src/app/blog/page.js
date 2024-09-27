@@ -15,8 +15,15 @@ export default page;
 
 export function generateMetadata() {
   return {
-    title: "Blog | Hridoy Saha - Web Developer",
+    title: "Blog - Hridoy Saha | Web Development Insights & Tutorials",
     description:
-      "Explore some Blog about Hridoy Saha's life and programming experiences",
+      "Stay updated with Hridoy Saha's blog, featuring articles on web development, frontend and backend technologies, coding tutorials, and project insights.",
+    openGraph: {
+      title: "Blog - Hridoy Saha | Web Development Insights & Tutorials",
+      description:
+        "Stay updated with Hridoy Saha's blog, featuring articles on web development, frontend and backend technologies, coding tutorials, and project insights.",
+      url: "https://hridoysaha.netlify.app/blog",
+      type: "website",
+    },
   };
 }
