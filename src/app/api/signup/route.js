@@ -3,12 +3,19 @@ import { User } from "@/lib/models/User";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { cookies } from "next/headers";
-import mongoose from "mongoose";
+// import { cookies } from "next/headers";
+// import mongoose from "mongoose";
 
 export async function POST(req) {
   const payload = await req.json();
   await dbConnect();
+
+  if (!payload.fullName || !payload.email || !payload.password) {
+    return NextResponse.json(
+      { message: "All the fields are required", success: false },
+      { status: 400 }
+    );
+  }
 
   // Checking if the email is exists or not
   const existingUser = await User.findOne({ email: payload.email });

@@ -12,3 +12,11 @@ function page() {
 }
 
 export default page;
+
+export function generateMetadata() {
+  return {
+    title: "Blog | Hridoy Saha - Web Developer",
+    description:
+      "Explore some Blog about Hridoy Saha's life and programming experiences",
+  };
+}

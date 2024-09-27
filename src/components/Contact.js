@@ -8,20 +8,58 @@ function Contact({ activeMenu }) {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState({
+    text: "",
+    error: false,
+  });
   const handleChange = (e) => {
     setMessageData({
       ...messageData,
       [e.target.name]: e.target.value,
     });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(messageData);
-    setMessageData({
-      fullName: "",
-      email: "",
-      message: "",
+    setStatus({
+      text: "",
+      error: false,
     });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({
+      text: "Sending...",
+      error: false,
+    });
+
+    try {
+      let response = await fetch("/api/message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(messageData),
+      });
+      response = await response.json();
+
+      if (response.success) {
+        setStatus({
+          text: response.message,
+          error: false,
+        });
+        setMessageData({
+          ...messageData,
+          message: "",
+        });
+      } else {
+        setStatus({
+          text: response.message,
+          error: true,
+        });
+      }
+    } catch (err) {
+      setStatus({
+        text: "An error occurred. Please try again.",
+        error: true,
+      });
+    }
   };
 
   return (
@@ -75,6 +113,16 @@ function Contact({ activeMenu }) {
             required
             onChange={handleChange}
           ></textarea>
+
+          {status.text && (
+            <span
+              className={`${
+                status.error ? styles.invalid__feedback : styles.valid__feedback
+              }`}
+            >
+              {status.text}
+            </span>
+          )}
 
           <button className={styles.form__btn} type="submit" data-form-btn>
             {/* <ion-icon name="paper-plane"></ion-icon> */}

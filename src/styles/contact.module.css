@@ -128,11 +128,15 @@ textarea.form__input::-webkit-resizer {
   background: var(--bg-gradient-jet);
 }
 
-.invalid__feedback {
+.invalid__feedback,
+.valid__feedback {
   color: red;
   font-size: var(--fs-8);
   display: block;
-  margin-top: 15px;
+  margin: 15px 0;
+}
+.valid__feedback {
+  color: rgb(0, 233, 163);
 }
 
 @media (min-width: 580px) {
