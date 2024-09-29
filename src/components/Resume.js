@@ -136,7 +136,7 @@ function Resume({ activeMenu }) {
           <li className={styles.timeline__item}>
             <h4 className={`h4 ${styles.timeline__item_title}`}>GreenRubino</h4>
 
-            <span>June - August{`(2024)`}</span>
+            <span>May - July{`(2024)`}</span>
 
             <p className={styles.timeline__text}>
               Worked with GreenRubino on a{" "}

@@ -1,12 +1,23 @@
 "use client";
-import Cookies from "js-cookie";
 const { useState, useEffect } = require("react");
 
 const useAuth = () => {
   const [isLoggedin, setIsLoggedin] = useState(false);
-  const token = Cookies.get("_hs_User_access_token");
+  const [token, setToken] = useState(null);
+
   useEffect(() => {
-    console.log(token);
+    async function fetchToken() {
+      const res = await fetch("/api/get-user-token"); // Call your API
+      if (res.ok) {
+        const data = await res.json();
+        setToken(data.token);
+      }
+    }
+
+    fetchToken();
+  }, []);
+
+  useEffect(() => {
     if (token) {
       setIsLoggedin(true);
     } else {

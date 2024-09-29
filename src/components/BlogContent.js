@@ -1,34 +1,16 @@
 import styles from "@/styles/blog.module.css";
-import styles2 from "@/styles/navbar.module.css";
+
 import Image from "next/image";
 import img1 from "@/assets/blog-1.jpg";
 import img2 from "@/assets/blog-2.jpg";
 import Link from "next/link";
+import BlogNav from "./BlogNav";
+
 function BlogContent() {
   return (
     <div className={styles.main__content}>
-      <nav className={styles2.navbar}>
-        <ul className={styles2.navbar__list}>
-          <li className={styles2.navbar__item}>
-            <button className={`${styles2.navbar__link}`}>
-              <Link href="/">Home</Link>
-            </button>
-          </li>
-          <li className={styles2.navbar__item}>
-            <button className={`${styles2.navbar__link} ${styles2.active}`}>
-              <Link href="/blog">Blog</Link>
-            </button>
-          </li>
-          <li className={styles2.navbar__item}>
-            <button className={`${styles2.navbar__link}`}>
-              <Link href="/login">Login</Link>
-            </button>
-          </li>
-          {/* <li className={styles2.navbar__item}>
-            <button className={`${styles2.navbar__link}`}>My Profile</button>
-          </li> */}
-        </ul>
-      </nav>
+      <BlogNav />
+
       <article className={`${styles.blog} active`}>
         <header>
           <h2 className={`h2 article-title ${styles.article__title}`}>Blog</h2>
