@@ -40,7 +40,8 @@
   pointer-events: none;
 }
 
-.navigation ul li a {
+.navigation ul li a,
+.navigation ul li button {
   position: relative;
   display: block;
   width: 100%;
@@ -49,11 +50,14 @@
   color: #fff;
 }
 .navigation ul li:hover a,
-.navigation ul li.hovered a {
+.navigation ul li.hovered a,
+.navigation ul li:hover button,
+.navigation ul li.hovered button {
   color: #2a2185;
 }
 
-.navigation ul li a .icon {
+.navigation ul li a .icon,
+.navigation ul li button .icon {
   position: relative;
   display: flex;
   align-items: center;
@@ -63,11 +67,13 @@
   line-height: 75px;
   text-align: center;
 }
-.navigation ul li a .icon svg {
+.navigation ul li a .icon svg,
+.navigation ul li button .icon svg {
   font-size: 1.75rem;
 }
 
-.navigation ul li a .title {
+.navigation ul li a .title,
+.navigation ul li button .title {
   position: relative;
   display: block;
   padding: 0 10px;
@@ -79,7 +85,9 @@
 
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
+.navigation ul li.hovered a::before,
+.navigation ul li:hover button::before,
+.navigation ul li.hovered button::before {
   content: "";
   position: absolute;
   right: 0;
@@ -92,7 +100,9 @@
   pointer-events: none;
 }
 .navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
+.navigation ul li.hovered a::after,
+.navigation ul li:hover button::after,
+.navigation ul li.hovered button::after {
   content: "";
   position: absolute;
   right: 0;
@@ -163,13 +173,6 @@
   border: 1px solid #333;
 }
 
-/* .search label svg {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-size: 1.2rem;
-} */
-
 .user {
   position: relative;
   width: 40px;
@@ -188,6 +191,61 @@
   object-fit: cover;
 }
 
+/* ======================= Cards ====================== */
+
+.cardBox {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.cardBox .card {
+  position: relative;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: #2a2185;
+}
+
+.cardBox .card .cardName {
+  color: #333;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+  font-size: 3.5rem;
+  color: #333;
+}
+.cardBox .card .iconBx svg {
+  opacity: 0.4;
+}
+
+.cardBox .card:hover {
+  background: #2a2185;
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: #fff;
+}
+.cardBox .card:hover .iconBx svg {
+  opacity: 1;
+}
+
 @media (max-width: 991px) {
   .navigation {
     left: -300px;
@@ -195,6 +253,7 @@
   .navigation.active {
     width: 300px;
     left: 0;
+    z-index: 999;
   }
   .main {
     width: 100%;
@@ -202,6 +261,9 @@
   }
   .main.active {
     left: 300px;
+  }
+  .cardBox {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -220,5 +282,8 @@
     position: fixed;
     right: 0;
     left: initial;
+  }
+  .cardBox {
+    grid-template-columns: auto;
   }
 }

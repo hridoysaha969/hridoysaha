@@ -2,6 +2,17 @@ import dbConnect from "@/lib/connection";
 import { Message } from "@/lib/models/Message";
 import { NextResponse } from "next/server";
 
+export async function GET(req) {
+  await dbConnect();
+  let result = [];
+  const data = await Message.find();
+  if (data) {
+    result = data;
+  }
+
+  return NextResponse.json({ result, success: true }, { status: 200 });
+}
+
 export async function POST(req) {
   const payload = await req.json();
   await dbConnect();

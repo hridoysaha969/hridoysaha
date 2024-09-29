@@ -1,71 +1,28 @@
+"use client";
 import styles from "@/styles/dashboard.module.css";
 import Image from "next/image";
-import Link from "next/link";
-import {
-  MdEmail,
-  MdHome,
-  MdMenu,
-  MdMessage,
-  MdPerson,
-  MdPostAdd,
-} from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 import img from "@/assets/my-avatar.png";
+import DashboardNav from "@/components/DashboardNav";
+import { useState } from "react";
+import DashHome from "@/components/DashHome";
+import DashMessage from "@/components/DashMessage";
 
-function page() {
+function Dashboard() {
+  const [showMenu, setShowMenu] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("dashboard");
   return (
     <div className={styles.container}>
-      <div className={styles.navigation}>
-        <ul>
-          <li>
-            <Link href="#">
-              <span className={styles.icon}>
-                <MdEmail />
-              </span>
-              <span className={styles.title}>Brand Name</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="#">
-              <span className={styles.icon}>
-                <MdHome />
-              </span>
-              <span className={styles.title}>Dashboard</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="#">
-              <span className={styles.icon}>
-                <MdPerson />
-              </span>
-              <span className={styles.title}>Users</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="#">
-              <span className={styles.icon}>
-                <MdPostAdd />
-              </span>
-              <span className={styles.title}>Add Blog</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="#">
-              <span className={styles.icon}>
-                <MdMessage />
-              </span>
-              <span className={styles.title}>Messages</span>
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <DashboardNav
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+        activeMenu={activeMenu}
+        setActiveMenu={setActiveMenu}
+      />
 
       <div className={styles.main}>
         <div className={styles.topbar}>
-          <div className={styles.toggle}>
+          <div className={styles.toggle} onClick={() => setShowMenu(!showMenu)}>
             <MdMenu />
           </div>
 
@@ -80,16 +37,12 @@ function page() {
             <Image src={img} alt="Hridoy Saha Dev" />
           </div>
         </div>
+
+        {activeMenu === "dashboard" && <DashHome />}
+        {activeMenu === "message" && <DashMessage />}
       </div>
     </div>
   );
 }
 
-export default page;
-
-export function generateMetadata() {
-  return {
-    title: "Dashboard | Hridoy Saha's Web Developer",
-    description: "Dashboard for Admins Only",
-  };
-}
+export default Dashboard;
