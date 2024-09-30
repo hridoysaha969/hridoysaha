@@ -28,9 +28,13 @@
   list-style: none;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
-.navigation ul li:hover,
 .navigation ul li.hovered {
   background-color: #fff;
 }
@@ -51,7 +55,6 @@
 }
 .navigation ul li:hover a,
 .navigation ul li.hovered a,
-.navigation ul li:hover button,
 .navigation ul li.hovered button {
   color: #2a2185;
 }
@@ -211,6 +214,11 @@
   justify-content: space-between;
   cursor: pointer;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
 }
 
 .cardBox .card .numbers {

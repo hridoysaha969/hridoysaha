@@ -7,10 +7,12 @@ import DashboardNav from "@/components/DashboardNav";
 import { useState } from "react";
 import DashHome from "@/components/DashHome";
 import DashMessage from "@/components/DashMessage";
+import AddBlog from "@/components/AddBlog";
 
 function Dashboard() {
   const [showMenu, setShowMenu] = useState(false);
   const [activeMenu, setActiveMenu] = useState("dashboard");
+
   return (
     <div className={styles.container}>
       <DashboardNav
@@ -20,7 +22,7 @@ function Dashboard() {
         setActiveMenu={setActiveMenu}
       />
 
-      <div className={styles.main}>
+      <div className={`${styles.main} ${showMenu && styles.active}`}>
         <div className={styles.topbar}>
           <div className={styles.toggle} onClick={() => setShowMenu(!showMenu)}>
             <MdMenu />
@@ -40,6 +42,7 @@ function Dashboard() {
 
         {activeMenu === "dashboard" && <DashHome />}
         {activeMenu === "message" && <DashMessage />}
+        {activeMenu === "addBlog" && <AddBlog />}
       </div>
     </div>
   );

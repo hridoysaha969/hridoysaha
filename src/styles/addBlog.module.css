@@ -1,0 +1,14 @@
+.container {
+  padding: 0 1.5rem !important;
+  margin: 2rem 0 !important;
+}
+.add__blog_form {
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+@media (max-width: 575px) {
+  .container {
+    padding: 0 0.75rem !important;
+  }
+}

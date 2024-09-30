@@ -75,7 +75,12 @@ function DashboardNav({ showMenu, setShowMenu, activeMenu, setActiveMenu }) {
         </li>
 
         <li className={`${activeMenu === "message" && styles.hovered}`}>
-          <button onClick={() => setActiveMenu("message")}>
+          <button
+            onClick={() => {
+              setShowMenu(!showMenu);
+              setActiveMenu("message");
+            }}
+          >
             <span className={styles.icon}>
               <MdMessage />
             </span>

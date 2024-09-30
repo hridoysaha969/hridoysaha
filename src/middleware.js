@@ -33,6 +33,9 @@ export async function middleware(request) {
       if (payload.role !== "admin" && url.includes("/dashboard")) {
         return NextResponse.redirect(new URL("/", request.url));
       }
+      // if (payload.role !== "admin" && url.includes("/api/message")) {
+      //   return NextResponse.redirect(new URL("/", request.url));
+      // }
 
       if (payload && url.includes("/login")) {
         return NextResponse.redirect(new URL("/", request.url));
