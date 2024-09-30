@@ -54,12 +54,6 @@ import dbConnect from "@/lib/connection";
 import { Blog } from "@/lib/models/Blog";
 import { NextResponse } from "next/server";
 
-export const config = {
-  api: {
-    bodyParser: false, // Disable Next.js body parsing
-  },
-};
-
 export async function POST(req) {
   // Convert the NextRequest to a readable stream
   const formData = await req.formData();
@@ -78,41 +72,6 @@ export async function POST(req) {
       { status: 400 }
     );
   }
-
-  // try {
-  //   // Upload the image to Cloudinary
-  //   const uploadResponse = await cloudinary.uploader.upload(
-  //     imageFile.stream(),
-  //     {
-  //       // public_id: "blogs",
-  //       folder: "blog_images",
-  //       resource_type: "auto", // Automatically determine the resource type
-  //     }
-  //   );
-
-  //   // Save the blog post to MongoDB
-  //   const newBlog = new Blog({
-  //     title,
-  //     heading,
-  //     content,
-  //     sub_content,
-  //     image: uploadResponse.secure_url,
-  //     publishDate: Date.now(),
-  //   });
-
-  //   await newBlog.save();
-
-  //   return NextResponse.json(
-  //     { message: "Blog post uploaded successfully.", success: true },
-  //     { status: 201 }
-  //   );
-  // } catch (error) {
-  //   console.error("Server error:", error);
-  //   return NextResponse.json(
-  //     { message: "Server error occurred", success: false },
-  //     { status: 500 }
-  //   );
-  // }
 
   try {
     // Upload the base64 image to Cloudinary
