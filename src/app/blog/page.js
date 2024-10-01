@@ -3,16 +3,16 @@ import BlogContent from "@/components/BlogContent";
 import styles from "@/styles/blog.module.css";
 
 async function getBlogs() {
-  // const url =
-  //   process.env.NODE_ENV !== "development"
-  //     ? `https://hridoysaha.netlify.app/api/blog`
-  //     : `http://localhost:3000/api/blog`;
-  let data = await fetch(`https://hridoysaha.netlify.app/api/blog/`, {
+  const url =
+    process.env.NODE_ENV !== "development"
+      ? `https://hridoysaha.netlify.app/api/blog`
+      : `http://localhost:3000/api/blog`;
+  let data = await fetch(url, {
     cache: "no-cache",
   });
   data = await data.json();
 
-  return data;
+  return data.blogs;
 }
 
 async function page() {
@@ -22,7 +22,7 @@ async function page() {
   return (
     <main className={styles.main}>
       <Aside />
-      <BlogContent blogs={blogs.blogs} />
+      <BlogContent blogs={blogs} />
     </main>
   );
 }
