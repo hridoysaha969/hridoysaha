@@ -5,6 +5,7 @@ function AddBlog() {
   const [blogData, setBlogData] = useState({
     title: "",
     content: "",
+    category: "",
     heading: "",
     sub_content: "",
     image: null,
@@ -16,6 +17,7 @@ function AddBlog() {
       ...blogData,
       [e.target.name]: e.target.value,
     });
+    setStatus("");
   };
 
   const handleImage = (e) => {
@@ -32,6 +34,7 @@ function AddBlog() {
     const data = new FormData();
     data.append("title", blogData.title);
     data.append("content", blogData.content);
+    data.append("category", blogData.category);
     data.append("heading", blogData.heading);
     data.append("sub_content", blogData.sub_content);
 
@@ -54,6 +57,7 @@ function AddBlog() {
             setBlogData({
               title: "",
               content: "",
+              category: "",
               heading: "",
               sub_content: "",
               image: null,
@@ -79,47 +83,70 @@ function AddBlog() {
       <h3>Add new Blog</h3>
 
       <form className={styles.add__blog_form} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Blog Title"
-          value={blogData.title}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="content"
-          placeholder="Blog Content"
-          value={blogData.content}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="heading"
-          placeholder="Add heading"
-          value={blogData.heading}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="sub_content"
-          placeholder="Add a sub heading"
-          value={blogData.sub_content}
-          onChange={handleChange}
-          required
-        />
+        <div className={styles.left__inputs}>
+          <input
+            type="text"
+            name="title"
+            placeholder="Blog Title"
+            value={blogData.title}
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            name="content"
+            rows={5}
+            placeholder="Blog Content"
+            value={blogData.content}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="category"
+            placeholder="Add Category"
+            value={blogData.category}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="heading"
+            placeholder="Add heading"
+            value={blogData.heading}
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            name="sub_content"
+            rows={5}
+            placeholder="Add a sub heading"
+            value={blogData.sub_content}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <input
-          type="file"
-          name="image"
-          accept="image/*"
-          onChange={handleImage}
-          required
-        />
+        <div className={styles.right__inputs}>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleImage}
+            required
+          />
 
-        <button type="submit">Upload Blog</button>
-        <p>{status}</p>
+          <div className={styles.form__action}>
+            <h4>Publish</h4>
+            <div className={styles.action__drift}>
+              <button>Save Draft</button>
+              <button>Preview</button>
+            </div>
+            <div className={styles.action__upload}>
+              <button type="submit">Upload Blog</button>
+              <p>Status : {status}</p>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   );

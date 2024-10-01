@@ -21,6 +21,19 @@ function DashMessage() {
     fetchMessage();
   }, []);
 
+  const handleFormateDate = (dynamicDate) => {
+    // Convert the MongoDB date string to a Date object
+    const createdAt = new Date(dynamicDate);
+
+    const formattedDate = createdAt.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+
+    return formattedDate;
+  };
+
   return (
     <div className={styles.container}>
       <h3>Messages</h3>
@@ -35,7 +48,7 @@ function DashMessage() {
                     <h2>{item.fullName.charAt(0)}</h2>
                     <div className={styles.header__info}>
                       <h4>{item.fullName}</h4>
-                      <span>29 Sep, 2024</span>
+                      <span>{handleFormateDate(item.date)}</span>
                     </div>
                   </div>
                   <div className={styles.message__body}>

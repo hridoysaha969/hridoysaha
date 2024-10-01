@@ -2,11 +2,23 @@ import Aside from "@/components/Aside";
 import BlogContent from "@/components/BlogContent";
 import styles from "@/styles/blog.module.css";
 
-function page() {
+async function getBlogs() {
+  let data = await fetch("http://localhost:3000/api/blog", {
+    cache: "no-cache",
+  });
+  data = await data.json();
+
+  return data;
+}
+
+async function page() {
+  const blogs = await getBlogs();
+  // console.log(blogs.blogs);
+
   return (
     <main className={styles.main}>
       <Aside />
-      <BlogContent />
+      <BlogContent blogs={blogs.blogs} />
     </main>
   );
 }

@@ -26,7 +26,10 @@ function Checkout({ pId }) {
         setError("Provide Number & TrxId");
         return false;
       }
-      console.log("Order complete with bkash", paymentObj);
+      // console.log("Order complete with bkash", paymentObj);
+      setError(
+        "Order placement under maintenance! Will be available in few days."
+      );
       setPaymentObj({
         number: "",
         trxId: "",
@@ -37,7 +40,10 @@ function Checkout({ pId }) {
         setError("Provide valid email");
         return false;
       }
-      console.log("Order complete with Payoneer", paymentObj);
+      // console.log("Order complete with Payoneer", paymentObj);
+      setError(
+        "Order placement under maintenance! Will be available in few days."
+      );
       setPaymentObj({
         number: "",
         trxId: "",

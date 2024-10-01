@@ -1,60 +1,79 @@
-// import cloudinary from "@/lib/cloudinary";
-// import dbConnect from "@/lib/connection";
-// import { Blog } from "@/lib/models/Blog";
-// import { NextResponse } from "next/server";
-
-// export async function POST(req) {
-//   const payload = await req.json();
-//   await dbConnect();
-
-//   if (
-//     !payload.title ||
-//     !payload.heading ||
-//     !payload.content ||
-//     !payload.sub_content ||
-//     !payload.image
-//   ) {
-//     return NextResponse.json(
-//       { message: "All fields are required!", success: false },
-//       { status: 400 }
-//     );
-//   }
-
-//   try {
-//     const uploadResponse = await cloudinary.uploader.upload(!payload.image, {
-//       folder: "blog_images",
-//     });
-
-//     const newBlog = Blog({
-//       title: payload.title,
-//       heading: payload.heading,
-//       content: payload.content,
-//       image: uploadResponse.secure_url,
-//     });
-
-//     await newBlog.save();
-
-//     return NextResponse.json(
-//       { message: "Blog post uploaded.", success: true },
-//       { status: 201 }
-//     );
-//   } catch (err) {
-//     return NextResponse.json(
-//       { message: "Server error occurred", success: false },
-//       { status: 500 }
-//     );
-//   }
-// }
-
-// app/api/blog/route.js\\
-
 // app/api/blog/route.js
 import cloudinary from "@/lib/cloudinary";
 import dbConnect from "@/lib/connection";
 import { Blog } from "@/lib/models/Blog";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { jwtVerify } from "jose";
+
+export async function GET(req) {
+  const cookieStore = cookies();
+  const tokenCookie = cookieStore.get("_hs_User_access_token"); //Get The Cookie Object
+
+  const token = tokenCookie?.value || "";
+
+  // if (!token) {
+  //   return NextResponse.json(
+  //     { message: "Unauthorized!", success: false },
+  //     { status: 400 }
+  //   );
+  // }
+
+  // try {
+  //   const { payload } = await jwtVerify(
+  //     token,
+  //     new TextEncoder().encode(process.env.JWT_SECRET)
+  //   );
+  //   if (payload.role !== "admin") {
+  //     return NextResponse.json(
+  //       { message: "Access denied, admins only", success: false },
+  //       { status: 400 }
+  //     );
+  //   }
+  // } catch (err) {
+  //   return NextResponse.json(
+  //     { message: "Server error", success: false },
+  //     { status: 500 }
+  //   );
+  // }
+
+  await dbConnect();
+  const blogs = await Blog.find({}); // Fetch your blog data from the database
+
+  return NextResponse.json({ blogs, success: true }, { status: 200 });
+}
 
 export async function POST(req) {
+  const cookieStore = cookies();
+  const tokenCookie = cookieStore.get("_hs_User_access_token"); //Get The Cookie Object
+
+  const token = tokenCookie?.value || "";
+
+  if (!token) {
+    return NextResponse.json(
+      { message: "Unauthorized!", success: false },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const { payload } = await jwtVerify(
+      token,
+      new TextEncoder().encode(process.env.JWT_SECRET)
+    );
+    if (payload.role !== "admin") {
+      return NextResponse.json(
+        { message: "Access denied, admins only", success: false },
+        { status: 400 }
+      );
+    }
+  } catch (err) {
+    return NextResponse.json(
+      { message: "Server error", success: false },
+      { status: 500 }
+    );
+  }
+
   // Convert the NextRequest to a readable stream
   const formData = await req.formData();
   await dbConnect();
@@ -63,10 +82,18 @@ export async function POST(req) {
   const title = formData.get("title");
   const heading = formData.get("heading");
   const content = formData.get("content");
+  const category = formData.get("category");
   const sub_content = formData.get("sub_content");
   const imageData = formData.get("image");
 
-  if (!title || !heading || !content || !sub_content || !imageData) {
+  if (
+    !title ||
+    !heading ||
+    !content ||
+    !category ||
+    !sub_content ||
+    !imageData
+  ) {
     return NextResponse.json(
       { message: "All fields are required!", success: false },
       { status: 400 }
@@ -85,6 +112,7 @@ export async function POST(req) {
       title,
       heading,
       content,
+      category,
       sub_content,
       image: uploadResponse.secure_url,
       publishDate: Date.now(),

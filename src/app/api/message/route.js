@@ -1,8 +1,40 @@
 import dbConnect from "@/lib/connection";
 import { Message } from "@/lib/models/Message";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { jwtVerify } from "jose";
 
 export async function GET(req) {
+  const cookieStore = cookies();
+  const tokenCookie = cookieStore.get("_hs_User_access_token"); //Get The Cookie Object
+
+  const token = tokenCookie?.value || "";
+
+  if (!token) {
+    return NextResponse.json(
+      { message: "Unauthorized!", success: false },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const { payload } = await jwtVerify(
+      token,
+      new TextEncoder().encode(process.env.JWT_SECRET)
+    );
+    if (payload.role !== "admin") {
+      return NextResponse.json(
+        { message: "Access denied, admins only", success: false },
+        { status: 400 }
+      );
+    }
+  } catch (err) {
+    return NextResponse.json(
+      { message: "Server error", success: false },
+      { status: 500 }
+    );
+  }
+
   await dbConnect();
   let result = [];
   const data = await Message.find();

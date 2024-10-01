@@ -39,7 +39,7 @@ function SignupForm({ activeMenu }) {
 
     res = await res.json();
     if (res.success) {
-      console.log(res);
+      // console.log(res);
       setSignupObj({
         fullName: "",
         email: "",

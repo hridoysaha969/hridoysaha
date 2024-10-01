@@ -1,6 +1,7 @@
 "use client";
 import {
   MdEmail,
+  MdGrain,
   MdHome,
   MdLogout,
   MdMenu,
@@ -36,9 +37,9 @@ function DashboardNav({ showMenu, setShowMenu, activeMenu, setActiveMenu }) {
         <li>
           <button>
             <span className={styles.icon}>
-              <MdEmail />
+              <MdGrain />
             </span>
-            <span className={styles.title}>Brand Name</span>
+            <span className={styles.title}>Admin</span>
           </button>
         </li>
 
@@ -66,7 +67,12 @@ function DashboardNav({ showMenu, setShowMenu, activeMenu, setActiveMenu }) {
         </li>
 
         <li className={`${activeMenu === "addBlog" && styles.hovered}`}>
-          <button onClick={() => setActiveMenu("addBlog")}>
+          <button
+            onClick={() => {
+              setShowMenu(!showMenu);
+              setActiveMenu("addBlog");
+            }}
+          >
             <span className={styles.icon}>
               <MdPostAdd />
             </span>

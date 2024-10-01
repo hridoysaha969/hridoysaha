@@ -37,7 +37,7 @@ function LoginForm({ activeMenu }) {
     response = await response.json();
 
     if (response.success) {
-      console.log(response);
+      // console.log(response);
       setLoginObj({
         email: "",
         password: "",

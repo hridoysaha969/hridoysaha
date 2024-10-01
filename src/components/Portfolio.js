@@ -3,15 +3,41 @@ import Link from "next/link";
 import { MdArrowDropDown, MdOutlineRemoveRedEye } from "react-icons/md";
 import img from "@/assets/projectImg/project-1.jpg";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Portfolio({ activeMenu }) {
   const [filterSelect, setFilterSelect] = useState("all");
   const [selected, setSelected] = useState("");
   const [showOption, setShowOption] = useState(false);
+  const [portfolioList, setPortfolioList] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const handleFilterChange = (category) => {
     setFilterSelect(category);
   };
+
+  useEffect(() => {
+    handleFilter();
+  }, []);
+
+  const handleFilter = async (params) => {
+    setLoading(true);
+    const url = params ? `/api/portfolio/${params}` : `/api/portfolio/all`;
+    try {
+      let response = await fetch(url);
+      response = await response.json();
+
+      if (response.success) {
+        setPortfolioList(response.result);
+      }
+
+      setLoading(false);
+    } catch (err) {
+      console.log(err.message);
+      setLoading(false);
+    }
+  };
+
   return (
     <article className={`portfolio ${activeMenu === "portfolio" && "active"}`}>
       <header>
@@ -25,7 +51,10 @@ function Portfolio({ activeMenu }) {
           <li className={styles.filter__item}>
             <button
               className={filterSelect === "all" ? styles.active : null}
-              onClick={() => handleFilterChange("all")}
+              onClick={() => {
+                handleFilterChange("all");
+                handleFilter("all");
+              }}
             >
               All
             </button>
@@ -33,7 +62,10 @@ function Portfolio({ activeMenu }) {
           <li className={styles.filter__item}>
             <button
               className={filterSelect === "web-design" ? styles.active : null}
-              onClick={() => handleFilterChange("web-design")}
+              onClick={() => {
+                handleFilterChange("web-design");
+                handleFilter("web-design");
+              }}
             >
               Web Design
             </button>
@@ -43,7 +75,10 @@ function Portfolio({ activeMenu }) {
               className={
                 filterSelect === "web-development" ? styles.active : null
               }
-              onClick={() => handleFilterChange("web-development")}
+              onClick={() => {
+                handleFilterChange("web-development");
+                handleFilter("web-development");
+              }}
             >
               Web Development
             </button>
@@ -73,6 +108,7 @@ function Portfolio({ activeMenu }) {
                   setSelected("All");
                   setShowOption(!showOption);
                   handleFilterChange("all");
+                  handleFilter("all");
                 }}
               >
                 All
@@ -85,6 +121,7 @@ function Portfolio({ activeMenu }) {
                   setSelected("Web Design");
                   setShowOption(!showOption);
                   handleFilterChange("web-design");
+                  handleFilter("web-design");
                 }}
               >
                 Web design
@@ -97,6 +134,7 @@ function Portfolio({ activeMenu }) {
                   setSelected("Web Development");
                   setShowOption(!showOption);
                   handleFilterChange("web-development");
+                  handleFilter("web-development");
                 }}
               >
                 Web development
@@ -106,26 +144,34 @@ function Portfolio({ activeMenu }) {
         </div>
 
         <ul className={styles.project__list}>
-          <li
-            className={`${styles.project__item} ${styles.active}`}
-            data-filter-item
-            data-category="web development"
-          >
-            <Link href="#">
-              <figure className={styles.project__img}>
-                <div className={styles.project__item_icon_box}>
-                  {/* <ion-icon name="eye-outline"></ion-icon> */}
-                  <MdOutlineRemoveRedEye />
-                </div>
+          {loading ? <div>Loading...</div> : null}
+          {(!loading || portfolioList.length > 0) &&
+            portfolioList.map((item, ind) => (
+              <li
+                key={ind}
+                className={`${styles.project__item} ${styles.active}`}
+              >
+                <Link href="#">
+                  <figure className={styles.project__img}>
+                    <div className={styles.project__item_icon_box}>
+                      <MdOutlineRemoveRedEye />
+                    </div>
 
-                <Image src={img} alt="finance" loading="lazy" />
-              </figure>
+                    <Image
+                      src={item.image.src}
+                      width={300}
+                      height={200}
+                      alt="finance"
+                      loading="lazy"
+                    />
+                  </figure>
 
-              <h3 className={styles.project__title}>Finance</h3>
+                  <h3 className={styles.project__title}>{item.title}</h3>
 
-              <p className={styles.project__category}>Web development</p>
-            </Link>
-          </li>
+                  <p className={styles.project__category}>{item.category}</p>
+                </Link>
+              </li>
+            ))}
         </ul>
       </section>
     </article>

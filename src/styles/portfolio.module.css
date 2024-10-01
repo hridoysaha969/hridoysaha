@@ -170,6 +170,7 @@
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+  text-transform: capitalize;
 }
 
 @media (min-width: 768px) {
