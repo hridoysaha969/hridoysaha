@@ -1,4 +1,4 @@
-import p1 from "@/assets/projectImg/project-1.jpg";
+import p1 from "@/assets/projectImg/project-5.png";
 import p2 from "@/assets/projectImg/project-2.png";
 export const servicesArray = [
   {

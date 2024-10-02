@@ -4,6 +4,7 @@ import { MdArrowDropDown, MdOutlineRemoveRedEye } from "react-icons/md";
 import img from "@/assets/projectImg/project-1.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
 function Portfolio({ activeMenu }) {
   const [filterSelect, setFilterSelect] = useState("all");
@@ -143,8 +144,8 @@ function Portfolio({ activeMenu }) {
           </ul>
         </div>
 
+        {loading ? <Loading /> : null}
         <ul className={styles.project__list}>
-          {loading ? <div>Loading...</div> : null}
           {!loading &&
             portfolioList.length > 0 &&
             portfolioList.map((item, ind) => (
@@ -152,7 +153,7 @@ function Portfolio({ activeMenu }) {
                 key={ind}
                 className={`${styles.project__item} ${styles.active}`}
               >
-                <Link href="#">
+                <Link href={item.liveLink}>
                   <figure className={styles.project__img}>
                     <div className={styles.project__item_icon_box}>
                       <MdOutlineRemoveRedEye />

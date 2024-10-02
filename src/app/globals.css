@@ -317,6 +317,30 @@ article.active {
   z-index: -1;
 }
 
+/* ========= NOT FOUND PAGE DESIGN ========= */
+.not__found {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-2);
+  text-align: center;
+}
+.not__found_wrapper h2 {
+  font-size: 8rem;
+  /* margin-bottom: 1rem; */
+  color: var(--vegas-gold);
+}
+.not__found_wrapper a {
+  color: var(--vegas-gold);
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  margin-top: 0.5rem;
+}
+
 @media (min-width: 580px) {
   /**
    * CUSTOM PROPERTY

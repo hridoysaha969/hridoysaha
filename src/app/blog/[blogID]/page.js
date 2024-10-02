@@ -1,3 +1,4 @@
+import BlogShare from "@/components/BlogShare";
 import styles from "@/styles/blogArticle.module.css";
 import Image from "next/image";
 
@@ -75,16 +76,26 @@ async function page({ params }) {
           <div className={styles.blog__article_content}>
             <p
               className={styles.blog__text}
-              dangerouslySetInnerHTML={{ __html: blog?.content }}
+              dangerouslySetInnerHTML={{
+                __html: blog ? blog.content : <p>No Data</p>,
+              }}
             ></p>
             <h4
-              className="h3"
-              dangerouslySetInnerHTML={{ __html: blog?.heading }}
+              className="h4"
+              dangerouslySetInnerHTML={{
+                __html: blog ? blog.heading : <p>No Data</p>,
+              }}
             ></h4>
             <p
               className={styles.blog__text}
-              dangerouslySetInnerHTML={{ __html: blog?.sub_content }}
+              dangerouslySetInnerHTML={{
+                __html: blog ? blog.sub_content : <p>No Data</p>,
+              }}
             ></p>
+          </div>
+
+          <div className={styles.blog__share_wrapper}>
+            <BlogShare />
           </div>
         </article>
       ) : null}
@@ -93,3 +104,25 @@ async function page({ params }) {
 }
 
 export default page;
+
+export async function generateMetadata({ params }) {
+  const blog = await getBlog(params.blogID);
+
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "";
+    }
+    return text;
+  };
+
+  return {
+    title: blog?.title,
+    description: truncateText(blog.content, 100),
+    openGraph: {
+      title: blog?.title,
+      description: truncateText(blog?.content, 100),
+      url: `https://hridoysaha.netlify.app/blog/${params.blogID}`,
+      type: "website",
+    },
+  };
+}
