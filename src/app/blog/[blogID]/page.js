@@ -95,7 +95,10 @@ async function page({ params }) {
           </div>
 
           <div className={styles.blog__share_wrapper}>
-            <BlogShare />
+            <BlogShare
+              blogTitle={blog.title}
+              blogUrl={`https://hridoysaha.netlify.app/blog/${params.blogID}`}
+            />
           </div>
         </article>
       ) : null}
