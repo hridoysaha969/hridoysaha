@@ -41,7 +41,7 @@ async function BlogContent({ blogs }) {
             {blogs &&
               blogs.map((item, ind) => (
                 <li key={ind} className={styles.blog__post_item}>
-                  <Link href="#">
+                  <Link href={`/blog/${item._id}`}>
                     <figure className={styles.blog__banner_box}>
                       <Image
                         src={item.image}

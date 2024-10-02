@@ -145,7 +145,8 @@ function Portfolio({ activeMenu }) {
 
         <ul className={styles.project__list}>
           {loading ? <div>Loading...</div> : null}
-          {(!loading || portfolioList.length > 0) &&
+          {!loading &&
+            portfolioList.length > 0 &&
             portfolioList.map((item, ind) => (
               <li
                 key={ind}
