@@ -17,6 +17,7 @@
   -moz-border-radius: 0.5rem;
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
+  position: relative;
 }
 .message__header {
   display: flex;
@@ -44,6 +45,25 @@
 }
 .message__body p {
   margin-bottom: 0.75rem;
+}
+.delete__message {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.delete__message svg {
+  color: red;
+  font-size: var(--fs-2);
+}
+.popup__message {
+  margin-top: 1rem;
+  font-size: var(--fs-4);
+  padding: 0 1.25rem;
+  color: #2a2185;
+  font-weight: var(--fw-500);
+}
+.popup__message.error {
+  color: red;
 }
 
 @media (max-width: 991px) {
