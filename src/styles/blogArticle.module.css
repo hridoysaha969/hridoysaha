@@ -14,7 +14,7 @@
 .nav__back_links p a {
   color: var(--white-1);
   font-weight: var(--fw-500);
-  font-size: var(--fs-7);
+  font-size: var(--fs-8);
   transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
