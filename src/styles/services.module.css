@@ -291,7 +291,7 @@
 
 @media (min-width: 580px) {
   .service__item {
-    display: flex;
+    display: block;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 18px;
