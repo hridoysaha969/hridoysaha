@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MdOutlineShare, MdShare } from "react-icons/md";
+import { MdShare } from "react-icons/md";
 import styles from "@/styles/blogArticle.module.css";
 
 function BlogShare({ blogTitle, blogUrl }) {
@@ -35,7 +35,9 @@ function BlogShare({ blogTitle, blogUrl }) {
           Share <MdShare />
         </button>
       ) : (
-        <p>Sharing is not supported in your browser!</p>
+        <p className={styles.no__sharing}>
+          Sharing is not supported in your browser!
+        </p>
       )}
     </div>
   );

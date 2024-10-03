@@ -1,6 +1,8 @@
 import BlogShare from "@/components/BlogShare";
 import styles from "@/styles/blogArticle.module.css";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 async function getBlog(id) {
   try {
@@ -14,10 +16,15 @@ async function getBlog(id) {
 
     // Check if the response is valid
     if (!res.ok) {
-      throw new Error(`Failed to fetch blogs, status: ${res.status}`);
+      return null;
     }
 
     const data = await res.json();
+
+    if (!data.success) {
+      // Show nothing or handle error rendering here
+      return null; // Or show a custom message like "Blog not found"
+    }
 
     // Check if the blogs property exists in the response
     if (!data || !data.blogs) {
@@ -27,7 +34,7 @@ async function getBlog(id) {
     return data.blogs;
   } catch (error) {
     console.error("Error fetching blogs:", error);
-    return {}; // Return an empty array if an error occurs
+    return null; // Return an empty array if an error occurs
   }
 }
 
@@ -52,6 +59,13 @@ async function page({ params }) {
     <main className={styles.blog__container}>
       {blog ? (
         <article className={`${styles.blog__article} active`}>
+          <div className={styles.nav__back_links}>
+            <p>
+              <Link href="/">Home</Link>
+              {" > "}
+              <Link href="/blog">Blog</Link>
+            </p>
+          </div>
           <header>
             <h2 className={`h2`}>{blog?.title}</h2>
           </header>
@@ -73,14 +87,19 @@ async function page({ params }) {
             <time>{handleFormateDate(blog?.publishDate)}</time>
           </div>
 
-          <div className={styles.blog__article_content}>
-            <p
+          <div
+            className={styles.blog__article_content}
+            dangerouslySetInnerHTML={{
+              __html: blog ? blog.content : <p>No Data</p>,
+            }}
+          >
+            {/* <p
               className={styles.blog__text}
               dangerouslySetInnerHTML={{
                 __html: blog ? blog.content : <p>No Data</p>,
               }}
-            ></p>
-            <h4
+            ></p> */}
+            {/* <h4
               className="h4"
               dangerouslySetInnerHTML={{
                 __html: blog ? blog.heading : <p>No Data</p>,
@@ -91,7 +110,7 @@ async function page({ params }) {
               dangerouslySetInnerHTML={{
                 __html: blog ? blog.sub_content : <p>No Data</p>,
               }}
-            ></p>
+            ></p> */}
           </div>
 
           <div className={styles.blog__share_wrapper}>
@@ -111,6 +130,10 @@ export default page;
 export async function generateMetadata({ params }) {
   const blog = await getBlog(params.blogID);
 
+  if (!blog) {
+    return notFound();
+  }
+
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "";
@@ -120,7 +143,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: blog?.title,
-    description: truncateText(blog.content, 100),
+    description: truncateText(blog?.content, 100),
     openGraph: {
       title: blog?.title,
       description: truncateText(blog?.content, 100),

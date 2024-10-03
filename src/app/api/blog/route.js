@@ -80,20 +80,13 @@ export async function POST(req) {
 
   // Extract fields
   const title = formData.get("title");
-  const heading = formData.get("heading");
+  // const heading = formData.get("heading");
   const content = formData.get("content");
   const category = formData.get("category");
-  const sub_content = formData.get("sub_content");
+  // const sub_content = formData.get("sub_content");
   const imageData = formData.get("image");
 
-  if (
-    !title ||
-    !heading ||
-    !content ||
-    !category ||
-    !sub_content ||
-    !imageData
-  ) {
+  if (!title || !content || !category || !imageData) {
     return NextResponse.json(
       { message: "All fields are required!", success: false },
       { status: 400 }
@@ -110,10 +103,8 @@ export async function POST(req) {
     // Save the blog post to MongoDB
     const newBlog = new Blog({
       title,
-      heading,
       content,
       category,
-      sub_content,
       image: uploadResponse.secure_url,
       publishDate: Date.now(),
     });

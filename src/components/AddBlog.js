@@ -6,8 +6,8 @@ function AddBlog() {
     title: "",
     content: "",
     category: "",
-    heading: "",
-    sub_content: "",
+    // heading: "",
+    // sub_content: "",
     image: null,
   });
   const [status, setStatus] = useState("");
@@ -35,8 +35,8 @@ function AddBlog() {
     data.append("title", blogData.title);
     data.append("content", blogData.content);
     data.append("category", blogData.category);
-    data.append("heading", blogData.heading);
-    data.append("sub_content", blogData.sub_content);
+    // data.append("heading", blogData.heading);
+    // data.append("sub_content", blogData.sub_content);
 
     if (blogData.image) {
       const reader = new FileReader();
@@ -58,8 +58,8 @@ function AddBlog() {
               title: "",
               content: "",
               category: "",
-              heading: "",
-              sub_content: "",
+              // heading: "",
+              // sub_content: "",
               image: null,
             });
           } else {
@@ -108,22 +108,22 @@ function AddBlog() {
             onChange={handleChange}
             required
           />
-          <input
+          {/* <input
             type="text"
             name="heading"
             placeholder="Add heading"
             value={blogData.heading}
             onChange={handleChange}
             required
-          />
-          <textarea
+          /> */}
+          {/* <textarea
             name="sub_content"
             rows={5}
             placeholder="Add a sub heading"
             value={blogData.sub_content}
             onChange={handleChange}
             required
-          />
+          /> */}
         </div>
 
         <div className={styles.right__inputs}>

@@ -327,7 +327,7 @@ article.active {
   text-align: center;
 }
 .not__found_wrapper h2 {
-  font-size: 8rem;
+  font-size: 4rem;
   /* margin-bottom: 1rem; */
   color: var(--vegas-gold);
 }
@@ -389,6 +389,9 @@ article.active {
   }
   .separator {
     margin: 32px 0;
+  }
+  .not__found_wrapper h2 {
+    font-size: 8rem;
   }
 }
 
