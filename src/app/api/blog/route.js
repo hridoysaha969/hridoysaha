@@ -80,10 +80,8 @@ export async function POST(req) {
 
   // Extract fields
   const title = formData.get("title");
-  // const heading = formData.get("heading");
   const content = formData.get("content");
   const category = formData.get("category");
-  // const sub_content = formData.get("sub_content");
   const imageData = formData.get("image");
 
   if (!title || !content || !category || !imageData) {
