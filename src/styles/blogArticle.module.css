@@ -79,6 +79,11 @@
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
+.blog__article_content h2 {
+  margin: 25px 0 10px;
+  font-size: var(--fs-1);
+  color: var(--light-gray);
+}
 .blog__article_content h4 {
   margin: 20px 0 5px;
   color: var(--light-gray);
