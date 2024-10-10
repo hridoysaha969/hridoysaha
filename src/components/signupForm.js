@@ -1,7 +1,7 @@
 import styles from "@/styles/contact.module.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-function SignupForm({ activeMenu }) {
+function SignupForm({ activeMenu, searchParams }) {
   const [signupObj, setSignupObj] = useState({
     fullName: "",
     email: "",
@@ -47,7 +47,13 @@ function SignupForm({ activeMenu }) {
         role: "user",
         aggrement: true,
       });
-      router.push("/");
+      if (searchParams?.blog) {
+        router.push("/blog");
+      } else if (searchParams?.order) {
+        router.push("/?service=true");
+      } else {
+        router.push("/");
+      }
       setLoading(false);
     } else {
       setError(res.message);

@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import SignupForm from "./signupForm";
-function LoginSignup() {
+function LoginSignup({ searchParams }) {
   const [activeMenu, setActiveMenu] = useState("login");
   const router = useRouter();
   return (
@@ -43,8 +43,12 @@ function LoginSignup() {
         </ul>
       </nav>
 
-      {activeMenu === "login" && <LoginForm activeMenu={activeMenu} />}
-      {activeMenu === "signup" && <SignupForm activeMenu={activeMenu} />}
+      {activeMenu === "login" && (
+        <LoginForm activeMenu={activeMenu} searchParams={searchParams} />
+      )}
+      {activeMenu === "signup" && (
+        <SignupForm activeMenu={activeMenu} searchParams={searchParams} />
+      )}
     </div>
   );
 }

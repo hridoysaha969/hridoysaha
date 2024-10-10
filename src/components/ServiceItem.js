@@ -1,12 +1,19 @@
+import useAuth from "@/hooks/useAuth";
 import styles from "@/styles/services.module.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 function ServiceItem({ service }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const isLoggedin = useAuth();
+
   const handleOrder = () => {
     setLoading(true);
-    router.push(`/checkout/${service.package}`);
+    if (!isLoggedin) {
+      router.push("/login?order=true");
+    } else {
+      router.push(`/checkout/${service.package}`);
+    }
   };
   return (
     <li className={styles.service__item}>

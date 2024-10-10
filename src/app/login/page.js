@@ -1,11 +1,11 @@
 import Aside from "@/components/Aside";
 import styles from "@/app/page.module.css";
 import LoginSignup from "@/components/LoginSignup";
-function page() {
+function page({ searchParams }) {
   return (
     <main className={styles.main}>
       <Aside />
-      <LoginSignup />
+      <LoginSignup searchParams={searchParams} />
     </main>
   );
 }

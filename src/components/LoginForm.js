@@ -1,7 +1,7 @@
 import styles from "@/styles/contact.module.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-function LoginForm({ activeMenu }) {
+function LoginForm({ activeMenu, searchParams }) {
   const [loginObj, setLoginObj] = useState({
     email: "",
     password: "",
@@ -42,7 +42,13 @@ function LoginForm({ activeMenu }) {
         email: "",
         password: "",
       });
-      router.push(`/`);
+      if (searchParams?.blog) {
+        router.push("/blog");
+      } else if (searchParams?.order) {
+        router.push("/?service=true");
+      } else {
+        router.push("/");
+      }
       setLoading(false);
     } else {
       setError(response.message);

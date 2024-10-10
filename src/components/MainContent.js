@@ -2,13 +2,19 @@
 import styles from "@/app/page.module.css";
 import Navbar from "./Navbar";
 import About from "./About";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Resume from "./Resume";
 import Portfolio from "./Portfolio";
 import Services from "./Services";
 import Contact from "./Contact";
-function MainContent() {
+function MainContent({ searchParams }) {
   const [activeMenu, setActiveMenu] = useState("about");
+
+  useEffect(() => {
+    if (searchParams?.service) {
+      setActiveMenu("services");
+    }
+  }, [searchParams]);
 
   return (
     <div className={styles.main__content}>

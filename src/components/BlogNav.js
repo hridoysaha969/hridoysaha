@@ -51,7 +51,7 @@ function BlogNav() {
         ) : (
           <li className={styles2.navbar__item}>
             <button className={`${styles2.navbar__link}`}>
-              <Link href="/login">Login</Link>
+              <Link href="/login?blog=true">Login</Link>
             </button>
           </li>
         )}

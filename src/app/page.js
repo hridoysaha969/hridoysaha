@@ -2,11 +2,11 @@ import Aside from "@/components/Aside";
 import styles from "./page.module.css";
 import MainContent from "@/components/MainContent";
 
-export default function Home() {
+export default function Home({ searchParams }) {
   return (
     <main className={styles.main}>
       <Aside />
-      <MainContent />
+      <MainContent searchParams={searchParams} />
     </main>
   );
 }
