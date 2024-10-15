@@ -27,7 +27,7 @@ function Aside() {
             Hridoy Saha
           </h1>
 
-          <p className={styles.title}>Full Stack developer</p>
+          <p className={styles.title}>Web developer</p>
         </div>
 
         <button
@@ -77,7 +77,6 @@ function Aside() {
 
           <li className={styles.contact__item}>
             <div className="icon-box">
-              {/* <ion-icon name="calendar-outline"></ion-icon> */}
               <Image src={calendar} width={20} alt="Phone" />
             </div>
 

@@ -20,7 +20,7 @@ export async function generateMetadata() {
       title: "Hridoy Saha | Full-Stack Web Developer",
       description:
         "Full-stack web developer offering frontend, backend, and database solutions. Expert in creating responsive websites, robust APIs, and efficient databases.",
-      url: "https://hridoysaha.netlify.app/",
+      url: "https://hridoysaha.vercel.app/",
       type: "website",
     },
   };

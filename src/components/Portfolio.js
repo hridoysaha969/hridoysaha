@@ -153,7 +153,7 @@ function Portfolio({ activeMenu }) {
                 key={ind}
                 className={`${styles.project__item} ${styles.active}`}
               >
-                <Link href={item.liveLink}>
+                <Link href={`/case-study/${item._id}`}>
                   <figure className={styles.project__img}>
                     <div className={styles.project__item_icon_box}>
                       <MdOutlineRemoveRedEye />

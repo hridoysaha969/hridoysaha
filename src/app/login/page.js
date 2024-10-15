@@ -21,7 +21,7 @@ export function generateMetadata() {
       title: "Login | Hridoy Saha's Web Development Services",
       description:
         "Login to Hridoy Saha's web development platform to access personalized services, project management, and more. Secure and seamless login experience.",
-      url: "https://hridoysaha.netlify.app/login",
+      url: "https://hridoysaha.vercel.app/login",
       type: "website",
     },
   };

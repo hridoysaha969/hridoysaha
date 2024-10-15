@@ -53,7 +53,7 @@ export function generateMetadata() {
       title: "Blog - Hridoy Saha | Web Development Insights & Tutorials",
       description:
         "Stay updated with Hridoy Saha's blog, featuring articles on web development, frontend and backend technologies, coding tutorials, and project insights.",
-      url: "https://hridoysaha.netlify.app/blog",
+      url: "https://hridoysaha.vercel.app/blog",
       type: "website",
     },
   };

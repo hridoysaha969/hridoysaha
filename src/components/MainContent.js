@@ -13,6 +13,8 @@ function MainContent({ searchParams }) {
   useEffect(() => {
     if (searchParams?.service) {
       setActiveMenu("services");
+    } else if (searchParams?.portfolio) {
+      setActiveMenu("portfolio");
     }
   }, [searchParams]);
 
