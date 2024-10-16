@@ -80,6 +80,16 @@ async function Page({ params }) {
             </div>
 
             <div className={styles.content__part}>
+              <h4 className="h4">Key Feature</h4>
+              {project.feature.map((item, ind) => (
+                <div key={ind} className={styles.challange__wrapper}>
+                  <h5 className="h5">{item.title}</h5>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.content__part}>
               <h4 className="h4">Technologies</h4>
               <div className={styles.timeline__skills_wrapper}>
                 {technologies().map((item, ind) => (
@@ -90,17 +100,7 @@ async function Page({ params }) {
               </div>
             </div>
 
-            <div className={styles.content__part}>
-              <h4 className="h4">Challanges</h4>
-              {project.challanges.map((item, ind) => (
-                <div key={ind} className={styles.challange__wrapper}>
-                  <h5 className="h5">{item.title}</h5>
-                  <p>{item.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.content__part}>
+            {/* <div className={styles.content__part}>
               <h4 className="h4">Solutions</h4>
               {project.solutions.map((item, ind) => (
                 <div key={ind} className={styles.challange__wrapper}>
@@ -108,7 +108,7 @@ async function Page({ params }) {
                   <p>{item.description}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div className={styles.content__part}>
               <div className={styles.link__wrapper}>

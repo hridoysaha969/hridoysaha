@@ -64,6 +64,8 @@ async function page({ params }) {
               <Link href="/">Home</Link>
               {" > "}
               <Link href="/blog">Blog</Link>
+              {" > "}
+              <Link href={`/blog/${params.blogID}`}>Post</Link>
             </p>
           </div>
           <header>

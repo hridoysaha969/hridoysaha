@@ -100,39 +100,23 @@ export const projectArray = [
     category: "web-design",
     overview:
       "CryptoByte is a cutting-edge cryptocurrency tracking web application that provides users with real-time updates on market trands, including 24-hour highs, lows and market cap on various coins. CryptoByte allows visitors to monitor the fast-moving world of cryptocurrency with ease.",
-    technologies: "Vite + React, React Chart, API Integration, Firebase",
-    challanges: [
+    technologies:
+      "Vite + React, React Chart, React Router, API Integration, Firebase",
+    feature: [
       {
-        title: "Real-Time Data Management",
+        title: "Real-Time Cryptocurrency Data",
         description:
-          "Fetching and displaying constantly updating data without compromising performance was a key challenge. Implementing efficient API fetching strategies was critical.",
+          "Live updates on the prices, market cap, and 24-hour performance of various coins.",
       },
       {
-        title: "Authentication Security",
+        title: "Detailed Coin Pages",
         description:
-          "Ensuring a smooth, secure login experience using Firebase while protecting user data was an important priority.",
+          "Visitors can check in-depth data and statistics for each cryptocurrency.",
       },
       {
-        title: "UI/UX Optimization",
+        title: "User Authentication",
         description:
-          "Balancing large amounts of crypto data and providing a clean, user-friendly interface for visitors to quickly access essential information.",
-      },
-    ],
-    solutions: [
-      {
-        title: "Fast Load Times with Vite",
-        description:
-          "Leveraging Vite's lightning-fast build tool ensured that CryotoByte loads quickly even with real-time updates.",
-      },
-      {
-        title: "Efficient API Fetching",
-        description:
-          "By using API data caching and error handling, the application maintains up-to-date crypto information while reducing API calls to improve performance.",
-      },
-      {
-        title: "User Authentication with Firebase",
-        description:
-          "Implementing Firebase allowed for easy integration of secure login and user management features, offering users a personalized experience.",
+          "Secure sign-in and authentication to personalize user experience and access advanced features.",
       },
     ],
     image: p1,
@@ -149,58 +133,26 @@ export const projectArray = [
       "CaseMate is an innovative web application designed to offer users a seamless and personalized experience in creating custom phone cases. The project provides users with the ability to upload their own images, tailor the case design according to their phone model, and order the customized phone case with integrated online payment.",
     technologies:
       "Next.js, Tailwind, TypeScript, Shadcn, Framer Motion, Prisma, Uploadthing, Kinde, Stripe, React Dropzone, React RND, Zod",
-    challanges: [
+    feature: [
       {
-        title: "Creating an Engaging User Experience for Customization",
+        title: "Custom Phone Case Builder",
         description:
-          "Users needed an intuitive interface to design custom phone cases using their own images and fit them precisely according to their phone model. The user experience had to be seamless and interactive",
+          "Users can upload images, customize the layout, and create their own phone case design.",
       },
       {
-        title: "Managing Authentication Securely",
+        title: "Secure User Authentication",
         description:
-          "The platform required a secure authentication system for users to log in, create accounts, and place orders.",
+          "Users can sign up, log in, and place orders securely and seamlessly",
       },
       {
-        title: "Handling Image Uploads Efficiently",
+        title: "Seamless Image Uploads",
         description:
-          "Uploading user images for custom cases required efficient storage management and a secure, scalable solution to handle the uploaded content.",
+          "Allows drag-and-drop image uploading with resizing capabilities.",
       },
       {
-        title: "Secure and Smooth Payment Processing",
+        title: "Secure Payment Gateway",
         description:
-          "Enabling online payments with reliability and security was a critical aspect of the platform.",
-      },
-      {
-        title: "Backend and Database Management",
-        description:
-          "The platform needed a reliable and efficient way to manage data, including user accounts, orders, and case customization details.",
-      },
-    ],
-    solutions: [
-      {
-        title: "Creating an Engaging User Experience",
-        description:
-          "To solve this, I implemented React Dropzone to allow users to drag and drop their images and used React RND for resizing and positioning the images. Framer Motion was used to introduce smooth animations, making the design experience dynamic and engaging.",
-      },
-      {
-        title: "Authentication Management",
-        description:
-          "For this, I integrated Kinde as the authentication provider, allowing for secure sign-up and login functionalities. The platform ensured privacy and protection of user data while maintaining smooth authentication flow.",
-      },
-      {
-        title: "Image Uploads management",
-        description:
-          "I used Uploadthing for secure image uploads. This service allowed efficient handling of user-generated content and seamless integration into the website, without compromising speed or security.",
-      },
-      {
-        title: "Payment and Security",
-        description:
-          "I integrated Stripe to handle payments securely. This allowed users to place orders and complete transactions with ease while benefiting from Stripe’s robust fraud prevention and secure payment gateway features.",
-      },
-      {
-        title: "Handling Database Securely",
-        description:
-          "I used Prisma for database management, providing a seamless connection to the backend. This allowed smooth storage of user data and order information.",
+          "Integrated online payment system for easy order processing.",
       },
     ],
     image: p2,
