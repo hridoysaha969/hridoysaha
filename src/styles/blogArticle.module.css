@@ -92,6 +92,10 @@
 .blog__share_wrapper {
   margin: 1.25rem 0;
 }
+.form__btn_wrapper {
+  margin-left: auto;
+  padding-right: 10px;
+}
 .form__btn {
   position: relative;
   width: 100%;
@@ -101,8 +105,8 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 13px 20px;
-  border-radius: 14px;
+  padding: 5px;
+  border-radius: 5px;
   font-size: var(--fs-6);
   text-transform: capitalize;
   box-shadow: var(--shadow-3);
@@ -165,6 +169,12 @@
   }
   .article__img {
     height: 450px;
+  }
+  .blog__meta {
+    margin-top: 20px;
+  }
+  .form__btn_wrapper {
+    padding-right: 20px;
   }
 }
 

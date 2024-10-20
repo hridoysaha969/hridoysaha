@@ -8,14 +8,15 @@ export async function GET(req, { params }) {
   const { id } = params;
 
   // Check if the provided id is a valid MongoDB ObjectId
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return NextResponse.json(
-      { message: "Invalid blog ID", success: false },
-      { status: 400 }
-    );
-  }
+  // if (!mongoose.Types.ObjectId.isValid(id)) {
+  //   return NextResponse.json(
+  //     { message: "Invalid blog ID", success: false },
+  //     { status: 400 }
+  //   );
+  // }
 
-  const blogs = await Blog.findById(id); // Fetch your blog data from the database
+  // const blogs = await Blog.findById(id); // Fetch your blog data from the database
+  const blogs = await Blog.findOne({ slug: id }).lean();
 
   if (!blogs) {
     return NextResponse.json(

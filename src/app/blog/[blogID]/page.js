@@ -40,7 +40,6 @@ async function getBlog(id) {
 
 async function page({ params }) {
   const blog = await getBlog(params.blogID);
-  // console.log(blog);
 
   const handleFormateDate = (dynamicDate) => {
     // Convert the MongoDB date string to a Date object
@@ -87,6 +86,11 @@ async function page({ params }) {
             <span className={styles.dot}></span>
 
             <time>{handleFormateDate(blog?.publishDate)}</time>
+
+            <BlogShare
+              blogTitle={blog.title}
+              blogUrl={`https://hridoysaha.netlify.app/blog/${params.blogID}`}
+            />
           </div>
 
           <div
@@ -96,12 +100,12 @@ async function page({ params }) {
             }}
           ></div>
 
-          <div className={styles.blog__share_wrapper}>
+          {/* <div className={styles.blog__share_wrapper}>
             <BlogShare
               blogTitle={blog.title}
               blogUrl={`https://hridoysaha.netlify.app/blog/${params.blogID}`}
             />
-          </div>
+          </div> */}
         </article>
       ) : null}
     </main>

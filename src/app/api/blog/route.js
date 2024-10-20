@@ -5,6 +5,7 @@ import { Blog } from "@/lib/models/Blog";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
+import slugify from "slugify";
 
 export async function GET(req) {
   const cookieStore = cookies();
@@ -91,6 +92,8 @@ export async function POST(req) {
     );
   }
 
+  const slug = slugify(title, { lower: true });
+
   try {
     // Upload the base64 image to Cloudinary
     const uploadResponse = await cloudinary.uploader.upload(imageData, {
@@ -102,6 +105,7 @@ export async function POST(req) {
     const newBlog = new Blog({
       title,
       content,
+      slug,
       category,
       image: uploadResponse.secure_url,
       publishDate: Date.now(),

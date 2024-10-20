@@ -28,17 +28,12 @@ function BlogShare({ blogTitle, blogUrl }) {
   };
 
   return (
-    <div>
+    <div className={styles.form__btn_wrapper}>
       {isShareSupported ? (
         <button onClick={handleShare} className={styles.form__btn}>
-          {" "}
-          Share <MdShare />
+          <MdShare />
         </button>
-      ) : (
-        <p className={styles.no__sharing}>
-          Sharing is not supported in your browser!
-        </p>
-      )}
+      ) : null}
     </div>
   );
 }

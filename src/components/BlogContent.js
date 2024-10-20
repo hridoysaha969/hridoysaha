@@ -5,8 +5,6 @@ import Link from "next/link";
 import BlogNav from "./BlogNav";
 
 async function BlogContent({ blogs }) {
-  // console.log(blogs);
-
   const handleFormateDate = (dynamicDate) => {
     // Convert the MongoDB date string to a Date object
     const createdAt = new Date(dynamicDate);
@@ -41,7 +39,7 @@ async function BlogContent({ blogs }) {
             {blogs &&
               blogs.map((item, ind) => (
                 <li key={ind} className={styles.blog__post_item}>
-                  <Link href={`/blog/${item._id}`}>
+                  <Link href={`/blog/${item.slug}`}>
                     <figure className={styles.blog__banner_box}>
                       <Image
                         src={item.image}
