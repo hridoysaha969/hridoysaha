@@ -89,7 +89,7 @@ async function page({ params }) {
 
             <BlogShare
               blogTitle={blog.title}
-              blogUrl={`https://hridoysaha.netlify.app/blog/${params.blogID}`}
+              blogUrl={`https://hridoysaha.vercel.app/blog/${params.blogID}`}
             />
           </div>
 
