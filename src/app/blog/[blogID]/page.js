@@ -99,13 +99,6 @@ async function page({ params }) {
               __html: blog ? blog.content : <p>No Data</p>,
             }}
           ></div>
-
-          {/* <div className={styles.blog__share_wrapper}>
-            <BlogShare
-              blogTitle={blog.title}
-              blogUrl={`https://hridoysaha.netlify.app/blog/${params.blogID}`}
-            />
-          </div> */}
         </article>
       ) : null}
     </main>
@@ -130,12 +123,26 @@ export async function generateMetadata({ params }) {
 
   return {
     title: blog?.title,
-    description: truncateText(blog?.content, 100),
+    description: truncateText(blog?.content, 160),
     openGraph: {
+      type: "article",
       title: blog?.title,
       description: truncateText(blog?.content, 100),
       url: `https://hridoysaha.vercel.app/blog/${params.blogID}`,
-      type: "website",
+      images: [
+        {
+          url: blog?.image, // Make sure blog.imageUrl contains the path to the image
+          width: 1200,
+          height: 900,
+          alt: blog.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: truncateText(blog?.content, 160),
+      images: [blog?.image],
     },
   };
 }
