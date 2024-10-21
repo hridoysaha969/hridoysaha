@@ -24,7 +24,7 @@ export async function generateMetadata() {
       url: "https://hridoysaha.vercel.app/",
       images: [
         {
-          url: "../assets/hridoy-saha.jpg", // The image to appear when sharing
+          url: "/hridoy-saha.jpg", // The image to appear when sharing
           width: 1200,
           height: 1200,
           alt: "My Website Homepage Image",
@@ -36,7 +36,7 @@ export async function generateMetadata() {
       title: "Hridoy Saha | Full-Stack Web Developer",
       description:
         "Full-stack web developer offering frontend, backend, and database solutions. Expert in creating responsive websites, robust APIs, and efficient databases.",
-      images: ["../assets/hridoy-saha.jpg"], // Same image for Twitter
+      images: ["/hridoy-saha.jpg"], // Same image for Twitter
     },
   };
 }

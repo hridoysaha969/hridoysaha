@@ -42,7 +42,6 @@ async function Page({ params }) {
     }
     return [];
   };
-  //   console.log(technologies());
 
   return (
     <main className={styles.project__container}>
