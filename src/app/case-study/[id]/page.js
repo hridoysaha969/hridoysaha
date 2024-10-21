@@ -111,11 +111,19 @@ async function Page({ params }) {
 
             <div className={styles.content__part}>
               <div className={styles.link__wrapper}>
-                <Link href={project.liveLink} className={styles.form__btn}>
+                <Link
+                  href={project.liveLink}
+                  target="_blank"
+                  className={styles.form__btn}
+                >
                   <Image src={link} width={20} alt="GitHub" />
                   <span>Live</span>
                 </Link>
-                <Link href={project.githubLink} className={styles.form__btn}>
+                <Link
+                  href={project.githubLink}
+                  target="_blank"
+                  className={styles.form__btn}
+                >
                   <Image src={github} width={20} alt="GitHub" />
                   <span>Github</span>
                 </Link>

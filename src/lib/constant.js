@@ -1,5 +1,6 @@
 import p1 from "@/assets/projectImg/project-1.jpg";
 import p2 from "@/assets/projectImg/project-2.jpg";
+import p3 from "@/assets/projectImg/project-3.jpg";
 export const servicesArray = [
   {
     id: 1,
@@ -158,5 +159,40 @@ export const projectArray = [
     image: p2,
     liveLink: "https://casemate-alpha.vercel.app/",
     githubLink: "https://github.com/hridoysaha969/casemate",
+  },
+  {
+    _id: 3,
+    title: "BG Removal",
+    sub_title: "Effortless Background Removal for Your Images",
+    category: "web-development",
+    overview:
+      "This project is a user-friendly image background removal web application, allowing users to easily upload images and remove backgrounds with just a few clicks. The app provides a seamless experience, backed by robust authentication and efficient image processing.",
+    technologies:
+      "Vite + React, Express.js, MongoDB, Mongoose, Clerk, Clickdrop API, Multer, JWT, CORS",
+    feature: [
+      {
+        title: "Background Removal",
+        description:
+          "Efficiently remove the background from uploaded images using Clickdrop API.",
+      },
+      {
+        title: "User Authentication",
+        description:
+          "Secure user sign-up and login using Clerk for authentication.",
+      },
+      {
+        title: "Image Uploading",
+        description:
+          "Users can upload their images via an intuitive interface, with the background removed in seconds.",
+      },
+      {
+        title: "Secure Storage",
+        description:
+          "User-uploaded images and processed outputs are handled safely using Express.js and MongoDB.",
+      },
+    ],
+    image: p3,
+    liveLink: "https://bg-removal-bay.vercel.app/",
+    githubLink: "https://github.com/hridoysaha969/bg-removal",
   },
 ];
