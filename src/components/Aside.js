@@ -29,7 +29,11 @@ function Aside() {
 
           <div className={styles.title_wrap}>
             <p className={styles.title}>Web developer</p>
-            <Link href="#" className={styles.resume_download}>
+            <Link
+              href="https://drive.google.com/file/d/1AXv_lhgORsovLuxZ9rCRaVR21qoASsxc/view?usp=drive_link"
+              className={styles.resume_download}
+              download
+            >
               <MdDownload />{" "}
             </Link>
           </div>
@@ -38,6 +42,7 @@ function Aside() {
         <button
           className={styles.info__more_btn}
           onClick={() => setShowInfo(!showInfo)}
+          aria-label="Show Contact"
         >
           <span>Show Contacts</span>
 
