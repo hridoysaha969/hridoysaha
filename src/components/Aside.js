@@ -32,6 +32,7 @@ function Aside() {
             <Link
               href="https://drive.google.com/file/d/1AXv_lhgORsovLuxZ9rCRaVR21qoASsxc/view?usp=drive_link"
               className={styles.resume_download}
+              aria-label="Resume Download"
               download
             >
               <MdDownload />{" "}
