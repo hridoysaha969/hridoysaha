@@ -7,9 +7,42 @@ import Image from "next/image";
 import gig1 from "@/assets/fiverr_gig_1.jpg";
 import gig2 from "@/assets/fiverr_gig_2.jpg";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-function Blog({ activeMenu }) {
+function Services({ activeMenu }) {
+  const [status, setStatus] = useState("Limited");
+  const [loading, setLoading] = useState(false);
   const services = servicesArray;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      let response = await fetch("/api/status", {
+        cache: "no-cache",
+      });
+      response = await response.json();
+
+      if (response.success) {
+        setStatus(response.result.status);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const getStatusClass = (status) => {
+    switch (status) {
+      case "Open":
+        return styles.success;
+      case "Limited":
+        return styles.warning;
+      case "Booked":
+        return styles.danger;
+      default:
+        return "";
+    }
+  };
 
   return (
     <article className={`blog ${activeMenu === "services" && "active"}`}>
@@ -18,6 +51,17 @@ function Blog({ activeMenu }) {
           Services
         </h2>
       </header>
+
+      <section className={styles.status}>
+        <p>
+          Availability :{" "}
+          {loading ? (
+            <span>...</span>
+          ) : (
+            <span className={getStatusClass(status)}>{status}</span>
+          )}
+        </p>
+      </section>
 
       <section className={styles.service}>
         {/* {isLoggedin && (
@@ -102,4 +146,4 @@ function Blog({ activeMenu }) {
   );
 }
 
-export default Blog;
+export default Services;

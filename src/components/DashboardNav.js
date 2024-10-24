@@ -1,6 +1,5 @@
 "use client";
 import {
-  MdEmail,
   MdGrain,
   MdHome,
   MdLogout,
@@ -9,7 +8,6 @@ import {
   MdPerson,
   MdPostAdd,
 } from "react-icons/md";
-import Link from "next/link";
 import styles from "@/styles/dashboard.module.css";
 import { useRouter } from "next/navigation";
 
@@ -80,6 +78,20 @@ function DashboardNav({ showMenu, setShowMenu, activeMenu, setActiveMenu }) {
           </button>
         </li>
 
+        <li className={`${activeMenu === "status" && styles.hovered}`}>
+          <button
+            onClick={() => {
+              setShowMenu(!showMenu);
+              setActiveMenu("status");
+            }}
+          >
+            <span className={styles.icon}>
+              <MdPostAdd />
+            </span>
+            <span className={styles.title}>Update Status</span>
+          </button>
+        </li>
+
         <li className={`${activeMenu === "message" && styles.hovered}`}>
           <button
             onClick={() => {
@@ -93,6 +105,7 @@ function DashboardNav({ showMenu, setShowMenu, activeMenu, setActiveMenu }) {
             <span className={styles.title}>Messages</span>
           </button>
         </li>
+
         <li>
           <button onClick={handleLogout}>
             <span className={styles.icon}>

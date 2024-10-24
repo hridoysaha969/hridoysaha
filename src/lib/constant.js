@@ -5,91 +5,53 @@ export const servicesArray = [
   {
     id: 1,
     package: "hsbasic01",
-    price: 29,
-    title: "Basic",
-    description: "Ideal for small projects or personal websites.",
+    price: 12000,
+    currency: "BDT",
+    title: "Exclusive Service",
+    description:
+      "Suitable for existing application. Requires granting access to your current code base.",
     servicesList: [
       {
-        data: "Responsive design",
+        data: "Advanced feature implementation",
       },
       {
-        data: "Basic functionality(React.js/Next.js)",
+        data: "Comprehensive performance audits",
       },
       {
-        data: "Basic UI/UX design",
+        data: "Modern technology integration",
       },
       {
-        data: "Basic contact form",
+        data: "Complete redesigns",
       },
       {
-        data: "Cross-browser compatibility",
+        data: "Bug fixing and maintenance",
       },
     ],
+    note: "Modify or cancel at any time",
   },
   {
     id: 2,
     package: "hsstandard02",
-    price: 199,
-    title: "Standard",
+    price: 30000,
+    currency: "BDT",
+    title: "Turn your vision into reality",
     description:
-      "Perfect for businesses or growing projects that need both frontend and backend development with enhanced functionality.",
+      "Create a new application from scratch including deployment and domain configuration.",
     servicesList: [
       {
-        data: "Frontend with React.js or Next.js",
+        data: "Minimalistic design",
       },
       {
-        data: "Backend with Node.js/Express",
+        data: "Scalable tech stack for future growth",
       },
       {
-        data: "API integration",
+        data: "Domain configuration",
       },
       {
-        data: "Database setup (MongoDB or Firebase)",
-      },
-      {
-        data: "Up to 5 pages",
-      },
-      {
-        data: "User authentication",
-      },
-      {
-        data: "Basic SEO optimization",
+        data: "Seamless deployment",
       },
     ],
-  },
-  {
-    id: 3,
-    price: 699,
-    package: "hspremium03",
-    title: "Premium",
-    description:
-      "A comprehensive solution for complex, high-performance web applications with advanced features.",
-    servicesList: [
-      {
-        data: "Everything in the Standard Plan",
-      },
-      {
-        data: "Custom API creation",
-      },
-      {
-        data: "Advanced database management",
-      },
-      {
-        data: "E-commerce functionality (if required)",
-      },
-      {
-        data: "Advanced UI/UX design",
-      },
-      {
-        data: "Admin dashboard",
-      },
-      {
-        data: "Up to 10+ pages",
-      },
-      {
-        data: "Full SEO optimization",
-      },
-    ],
+    note: "Delivery time depends on the scope",
   },
 ];
 
@@ -194,5 +156,20 @@ export const projectArray = [
     image: p3,
     liveLink: "https://bg-removal-bay.vercel.app/",
     githubLink: "https://github.com/hridoysaha969/bg-removal",
+  },
+];
+
+export const statusArray = [
+  {
+    title: "Open",
+    value: "open",
+  },
+  {
+    title: "Limited",
+    value: "limited",
+  },
+  {
+    title: "Booked",
+    value: "open",
   },
 ];

@@ -37,6 +37,12 @@
   margin-bottom: 10px;
 }
 
+.info__content .title_wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .info__content .title {
   color: var(--white-1);
   background: var(--onyx);
@@ -45,6 +51,18 @@
   width: max-content;
   padding: 3px 12px;
   border-radius: 8px;
+}
+.info__content .resume_download {
+  color: var(--white-1);
+  background: var(--onyx);
+
+  font-weight: var(--fw-300);
+  width: max-content;
+  padding: 5px;
+  border-radius: 8px;
+}
+.info__content .resume_download svg {
+  font-size: var(--fs-6);
 }
 
 .info__more_btn {

@@ -66,6 +66,10 @@
   color: red;
 }
 
+.update__heading {
+  color: var(--eerie-black-1);
+}
+
 @media (max-width: 991px) {
   .message__wrapper {
     grid-template-columns: auto;

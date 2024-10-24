@@ -11,7 +11,7 @@ import phone from "@/assets/phone.png";
 import calendar from "@/assets/calender.png";
 import location from "@/assets/location.png";
 import Link from "next/link";
-import { MdArrowDropDown } from "react-icons/md";
+import { MdArrowDropDown, MdDownload } from "react-icons/md";
 import { useState } from "react";
 function Aside() {
   const [showInfo, setShowInfo] = useState(false);
@@ -27,7 +27,12 @@ function Aside() {
             Hridoy Saha
           </h1>
 
-          <p className={styles.title}>Web developer</p>
+          <div className={styles.title_wrap}>
+            <p className={styles.title}>Web developer</p>
+            <Link href="#" className={styles.resume_download}>
+              <MdDownload />{" "}
+            </Link>
+          </div>
         </div>
 
         <button
@@ -75,7 +80,7 @@ function Aside() {
             </div>
           </li>
 
-          <li className={styles.contact__item}>
+          {/* <li className={styles.contact__item}>
             <div className="icon-box">
               <Image src={calendar} width={20} alt="Phone" />
             </div>
@@ -85,7 +90,7 @@ function Aside() {
 
               <span>August 10, 2000</span>
             </div>
-          </li>
+          </li> */}
 
           <li className={styles.contact__item}>
             <div className="icon-box">

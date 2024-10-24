@@ -8,6 +8,7 @@ import { useState } from "react";
 import DashHome from "@/components/DashHome";
 import DashMessage from "@/components/DashMessage";
 import AddBlog from "@/components/AddBlog";
+import UpdateStatus from "@/components/UpdateStatus";
 
 function Dashboard() {
   const [showMenu, setShowMenu] = useState(false);
@@ -43,6 +44,7 @@ function Dashboard() {
         {activeMenu === "dashboard" && <DashHome />}
         {activeMenu === "message" && <DashMessage />}
         {activeMenu === "addBlog" && <AddBlog />}
+        {activeMenu === "status" && <UpdateStatus />}
       </div>
     </div>
   );
