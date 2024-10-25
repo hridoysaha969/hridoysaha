@@ -70,6 +70,64 @@
   color: var(--eerie-black-1);
 }
 
+.status__section {
+  margin-top: 30px;
+}
+.status__section p {
+  font-weight: var(--fw-500);
+  font-size: var(--fs-4);
+}
+.status__update {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa; /* Light grey background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-width: 400px;
+  /* margin: 0 auto; Center align */
+  font-family: "Poppins", sans-serif; /* Modern font */
+  margin-top: 1.5rem;
+}
+
+.status__update label {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.status__update select {
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+
+.status__update select:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.status__update select:focus {
+  border-color: #4caf50; /* Green border on focus */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); /* Light green glow */
+}
+
+.status__update select:hover {
+  border-color: #aaa; /* Darker border on hover */
+}
+
+.status__update select option {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
 @media (max-width: 991px) {
   .message__wrapper {
     grid-template-columns: auto;

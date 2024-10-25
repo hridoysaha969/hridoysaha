@@ -56,36 +56,16 @@ function Services({ activeMenu }) {
         <p>
           Availability :{" "}
           {loading ? (
-            <span>...</span>
+            <span className={styles.loader}></span>
           ) : (
-            <span className={getStatusClass(status)}>{status}</span>
+            <span className={`${getStatusClass(status)} ${styles.status_bar}`}>
+              {status}
+            </span>
           )}
         </p>
       </section>
 
       <section className={styles.service}>
-        {/* {isLoggedin && (
-          <ul className={styles.filter__list}>
-            <li className={styles.filter__item}>
-              <button
-                className={filterSelect === "all" ? styles.active : null}
-                onClick={() => handleFilterChange("all")}
-              >
-                My Profile
-              </button>
-            </li>
-            <li className={styles.filter__item}>
-              <button
-                className={filterSelect === "web-design" ? styles.active : null}
-                onClick={() => handleFilterChange("web-design")}
-              >
-                Logout
-                <MdLogout />
-              </button>
-            </li>
-          </ul>
-        )} */}
-
         <ul className={styles.service__list}>
           {services.map((service, ind) => (
             <ServiceItem key={ind} service={service} />

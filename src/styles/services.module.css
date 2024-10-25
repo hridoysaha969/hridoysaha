@@ -19,7 +19,30 @@
   font-weight: var(--fw-500);
   gap: 10px;
 }
-.status span {
+
+.status p span.loader {
+  display: block;
+  width: 60px;
+  height: 30px;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(229, 229, 229, 0.3) 30%,
+    rgba(242, 242, 242, 0.3) 38%,
+    rgba(242, 242, 242, 0.3) 40%,
+    rgba(229, 229, 229, 0.3) 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load 2s infinite;
+}
+@keyframes load {
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.status span.status_bar {
   font-size: var(--fs-7);
   padding: 3px 8px;
   border-radius: 20px;
@@ -37,6 +60,7 @@
   border: 1px solid var(--status-danger);
   color: var(--status-danger);
 }
+
 .service__list {
   margin-top: 50px;
   display: grid;

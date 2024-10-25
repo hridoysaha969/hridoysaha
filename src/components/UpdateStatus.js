@@ -40,12 +40,13 @@ const UpdateStatus = () => {
     <div className={styles.container}>
       <h2 className={`h2 ${styles.update__heading}`}>Update Service Status</h2>
 
-      <section>
+      <section className={styles.status__section}>
         <p>Current Status : {loading ? "Loading..." : select}</p>
 
-        <form>
+        <form className={styles.status__update}>
           <label>Update status to : </label>
           <select onChange={handleUpdate} disabled={loading}>
+            <option value="">Select Status</option>
             <option value="Limited">Limited</option>
             <option value="Open">Open</option>
             <option value="Booked">Booked</option>
