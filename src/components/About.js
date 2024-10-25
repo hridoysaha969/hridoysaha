@@ -123,7 +123,7 @@ function About({ activeMenu, setActiveMenu }) {
               <p className={styles.service__item_text}>
                 Connect with me on LinkedIn to view my professional journey,
                 network, and explore opportunities for collaboration.{" "}
-                <Link href="https://www.linkedin.com/in/b2c/">
+                <Link href="https://www.linkedin.com/in/sahahridoy/">
                   {" "}
                   Explore now
                 </Link>
