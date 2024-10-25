@@ -71,7 +71,7 @@
 
 .price__tag {
   background: var(--text-gradient-yellow);
-  color: #fff;
+  color: var(--smoky-black);
   padding: 5px 10px;
   border-radius: 50px;
   font-size: var(--fs-7);
@@ -212,7 +212,7 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  color: var(--white-2);
+  color: var(--smoky-black);
   display: block;
   text-align: center;
   margin-top: 15px;
