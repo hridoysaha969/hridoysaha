@@ -34,7 +34,7 @@ function Resume({ activeMenu }) {
             <MdOutlineMenuBook />
           </div>
 
-          <h3 className="h3">Education</h3>
+          <h3 className="h3">Qualification</h3>
         </div>
 
         <ol className={styles.timeline__list}>

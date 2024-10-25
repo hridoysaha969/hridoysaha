@@ -164,7 +164,6 @@ function Portfolio({ activeMenu }) {
                       width={300}
                       height={200}
                       alt="finance"
-                      loading="lazy"
                     />
                   </figure>
 

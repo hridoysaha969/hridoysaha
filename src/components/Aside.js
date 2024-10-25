@@ -29,14 +29,14 @@ function Aside() {
 
           <div className={styles.title_wrap}>
             <p className={styles.title}>Web developer</p>
-            <Link
-              href="https://drive.google.com/file/d/1AXv_lhgORsovLuxZ9rCRaVR21qoASsxc/view?usp=drive_link"
+            <a
+              href="/hridoy_saha_resume.pdf"
               className={styles.resume_download}
               aria-label="Resume Download"
               download
             >
               <MdDownload />{" "}
-            </Link>
+            </a>
           </div>
         </div>
 

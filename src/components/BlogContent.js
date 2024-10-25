@@ -44,7 +44,6 @@ async function BlogContent({ blogs }) {
                       <Image
                         src={item.image}
                         alt={item.title}
-                        loading="lazy"
                         width={300}
                         height={230}
                       />
