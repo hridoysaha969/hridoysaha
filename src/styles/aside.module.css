@@ -60,6 +60,10 @@
   width: max-content;
   padding: 5px;
   border-radius: 8px;
+  font-size: var(--fs-8);
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .info__content .resume_download svg {
   font-size: var(--fs-6);

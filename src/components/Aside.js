@@ -11,7 +11,13 @@ import phone from "@/assets/phone.png";
 import calendar from "@/assets/calender.png";
 import location from "@/assets/location.png";
 import Link from "next/link";
-import { MdArrowDropDown, MdDownload } from "react-icons/md";
+import {
+  MdArrowDropDown,
+  MdDownload,
+  MdMail,
+  MdPhone,
+  MdPlace,
+} from "react-icons/md";
 import { useState } from "react";
 function Aside() {
   const [showInfo, setShowInfo] = useState(false);
@@ -35,7 +41,7 @@ function Aside() {
               aria-label="Resume Download"
               download
             >
-              <MdDownload />{" "}
+              <MdDownload /> Resume
             </a>
           </div>
         </div>
@@ -57,7 +63,8 @@ function Aside() {
         <ul className={styles.contacts__list}>
           <li className={styles.contact__item}>
             <div className="icon-box">
-              <Image src={gmail} width={30} alt="Gmail" />
+              {/* <Image src={gmail} width={30} alt="Gmail" /> */}
+              <MdMail />
             </div>
 
             <div className={styles.contact__info}>
@@ -74,7 +81,8 @@ function Aside() {
 
           <li className={styles.contact__item}>
             <div className="icon-box">
-              <Image src={phone} width={20} alt="Phone" />
+              {/* <Image src={phone} width={20} alt="Phone" /> */}
+              <MdPhone />
             </div>
 
             <div className={styles.contact__info}>
@@ -100,8 +108,8 @@ function Aside() {
 
           <li className={styles.contact__item}>
             <div className="icon-box">
-              {/* <ion-icon name="location-outline"></ion-icon> */}
-              <Image src={location} width={40} alt="Phone" />
+              {/* <Image src={location} width={40} alt="Phone" /> */}
+              <MdPlace />
             </div>
 
             <div className={styles.contact__info}>

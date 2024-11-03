@@ -3,6 +3,7 @@ import Image from "next/image";
 import html from "@/assets/html.png";
 import css from "@/assets/css.png";
 import js from "@/assets/javascript.png";
+import ts from "@/assets/typescript.png";
 import bs from "@/assets/bs.png";
 import tailwind from "@/assets/tailwind.png";
 import react from "@/assets/react.png";
@@ -173,7 +174,11 @@ function Resume({ activeMenu }) {
               </div>
               <div className={styles.timeline__skill}>
                 <Image src={js} width={30} alt="JavaScript" />
-                <span>JS</span>
+                <span>JavaScript</span>
+              </div>
+              <div className={styles.timeline__skill}>
+                <Image src={ts} width={30} alt="TypeScript" />
+                <span>TypeScript</span>
               </div>
               <div className={styles.timeline__skill}>
                 <Image src={bs} width={30} alt="Bootstrap" />
