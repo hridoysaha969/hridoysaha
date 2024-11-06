@@ -1,6 +1,7 @@
 import p1 from "@/assets/projectImg/project-1.jpg";
 import p2 from "@/assets/projectImg/project-2.jpg";
 import p3 from "@/assets/projectImg/project-3.jpg";
+import p5 from "@/assets/projectImg/project-5.jpg";
 export const servicesArray = [
   {
     id: 1,
@@ -156,5 +157,35 @@ export const projectArray = [
     image: p1,
     liveLink: "https://bytecrypto.netlify.app/",
     githubLink: "https://github.com/hridoysaha969/cryptobyte",
+  },
+  {
+    _id: 4,
+    title: "Horizon",
+    sub_title: "Bank Account Management Web App",
+    category: "web-development",
+    overview:
+      "Horizon is a dynamic bank account management application designed to simplify financial organization. This web app enables users to securely link multiple bank accounts, monitor transactions, and transfer funds between accounts with ease. ([Demo] email: johndoe@test.com, password: pass_123)",
+    technologies:
+      "Next.js, TypeScript, Shadcn, Tailwind CSS, Appwrite, Plaid API, Chart.js",
+    feature: [
+      {
+        title: "Multi-Bank Account Integration",
+        description:
+          "Link and manage multiple bank accounts within a single platform for centralized control.",
+      },
+      {
+        title: "Fund Transfers",
+        description:
+          "Effortlessly transfer funds from one account to another with real-time balance updates.",
+      },
+      {
+        title: "Transaction Visualization",
+        description:
+          "View spending patterns and account balances through interactive charts.",
+      },
+    ],
+    image: p5,
+    liveLink: "https://real-banking.vercel.app/",
+    githubLink: "https://github.com/hridoysaha969/real-banking",
   },
 ];
