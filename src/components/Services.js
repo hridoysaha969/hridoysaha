@@ -6,6 +6,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import Image from "next/image";
 import gig1 from "@/assets/fiverr_gig_1.jpg";
 import gig2 from "@/assets/fiverr_gig_2.jpg";
+import gig3 from "@/assets/fiverr_gig_3.jpg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -87,11 +88,7 @@ function Services({ activeMenu }) {
                   <MdOutlineRemoveRedEye />
                 </div>
 
-                <Image
-                  src={gig1}
-                  alt="Product upload - Hridoy Saha"
-                  loading="lazy"
-                />
+                <Image src={gig1} alt="Hridoy Saha Gig" loading="lazy" />
               </figure>
 
               <h3 className={styles.project__title}>
@@ -110,7 +107,7 @@ function Services({ activeMenu }) {
                   <MdOutlineRemoveRedEye />
                 </div>
 
-                <Image src={gig2} alt="finance" loading="lazy" />
+                <Image src={gig2} alt="Hridoy Saha Gig" loading="lazy" />
               </figure>
 
               <h3 className={styles.project__title}>
@@ -118,6 +115,24 @@ function Services({ activeMenu }) {
               </h3>
 
               <p className={styles.project__category}>Custom Websites</p>
+            </Link>
+          </li>
+
+          <li className={`${styles.project__item} ${styles.active}`}>
+            <Link href="https://www.fiverr.com/s/yvxV6we">
+              <figure className={styles.project__img}>
+                <div className={styles.project__item_icon_box}>
+                  <MdOutlineRemoveRedEye />
+                </div>
+
+                <Image src={gig3} alt="Hridoy Saha Gig" loading="lazy" />
+              </figure>
+
+              <h3 className={styles.project__title}>
+                develop and integrate custom rest apis for your application
+              </h3>
+
+              <p className={styles.project__category}>API Development</p>
             </Link>
           </li>
         </ul>
