@@ -2,6 +2,7 @@ import p1 from "@/assets/projectImg/project-1.jpg";
 import p2 from "@/assets/projectImg/project-2.jpg";
 import p3 from "@/assets/projectImg/project-3.jpg";
 import p5 from "@/assets/projectImg/project-5.jpg";
+import p6 from "@/assets/projectImg/project-6.png";
 export const servicesArray = [
   {
     id: 1,
@@ -57,6 +58,46 @@ export const servicesArray = [
 ];
 
 export const projectArray = [
+  {
+    _id: 5,
+    title: "Insight Metrics",
+    sub_title:
+      "Track, Analyze, and Optimize Your Website Performance with Ease.",
+    category: "web-development",
+    overview:
+      "This web application provides a seamless solution for tracking website analytics. Users can easily add their websites, generate a unique script tag, and integrate it into their site's code to monitor real-time metrics like visits and page views. The platform is built with a modern tech stack to deliver an efficient analytics experience.",
+    technologies:
+      "Next.js, Tailwind, Shadcn, Supabase, React Syntax Highlighter",
+    feature: [
+      {
+        title: "Website Integration",
+        description:
+          "Add multiple websites and generate unique script tags for each one.",
+      },
+      {
+        title: "Real-Time Tracking",
+        description: "Monitor visits and page views with live updates.",
+      },
+      {
+        title: "User-Friendly Dashboard",
+        description:
+          "A visually appealing interface to view analytics data at a glance.",
+      },
+      {
+        title: "Integration Guide",
+        description:
+          "Step-by-step instructions to help users seamlessly integrate the script into their websites.",
+      },
+      {
+        title: "Scalable Design",
+        description:
+          "Built with modern tools to ensure performance and scalability.",
+      },
+    ],
+    image: p6,
+    liveLink: "https://insite-metrics.vercel.app/",
+    githubLink: "https://github.com/hridoysaha969/insite-website",
+  },
   {
     _id: 1,
     title: "CaseMate",

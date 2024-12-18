@@ -67,7 +67,7 @@ function Contact({ activeMenu }) {
       <header>
         <h2 className={`h2 article-title ${styles.article__title}`}>Contact</h2>
       </header>
-
+      
       <section className={styles.mapbox}>
         <figure>
           <iframe
