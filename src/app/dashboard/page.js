@@ -51,3 +51,11 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+// export async function generateMetadata() {
+//   return {
+//     title: "Admin Dashboard | Hridoy Saha Dev",
+//     description:
+//       "This page is for admins only. You can manage your website from here.",
+//   };
+// }

@@ -30,7 +30,10 @@ export async function middleware(request) {
         return NextResponse.redirect(new URL("/login", request.url));
       }
 
-      if (payload.role !== "admin" && url.includes("/dashboard")) {
+      if (
+        payload.role !== process.env.ADMIN_AUTH_VALUE &&
+        url.includes("/dashboard")
+      ) {
         return NextResponse.redirect(new URL("/", request.url));
       }
       // if (payload.role !== "admin" && url.includes("/api/message")) {

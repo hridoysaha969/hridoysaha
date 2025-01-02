@@ -3,8 +3,6 @@ import { User } from "@/lib/models/User";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-// import { cookies } from "next/headers";
-// import mongoose from "mongoose";
 
 export async function POST(req) {
   const payload = await req.json();

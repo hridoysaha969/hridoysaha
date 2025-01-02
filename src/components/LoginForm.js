@@ -44,8 +44,8 @@ function LoginForm({ activeMenu, searchParams }) {
       });
       if (searchParams?.blog) {
         router.push("/blog");
-      } else if (searchParams?.order) {
-        router.push("/?service=true");
+      } else if (searchParams?.admin) {
+        router.push("/dashboard");
       } else {
         router.push("/");
       }

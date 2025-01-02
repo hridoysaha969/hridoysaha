@@ -1,10 +1,12 @@
 import dbConnect from "@/lib/connection";
+import { Blog } from "@/lib/models/Blog";
 import { Message } from "@/lib/models/Message";
+import { User } from "@/lib/models/User";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
-export async function GET(req) {
+export async function GET() {
   const cookieStore = cookies();
   const tokenCookie = cookieStore.get("_hs_User_access_token"); //Get The Cookie Object
 
@@ -35,43 +37,27 @@ export async function GET(req) {
     );
   }
 
-  await dbConnect();
-  let result = [];
-  const data = await Message.find();
-  if (data) {
-    result = data;
-  }
-
-  return NextResponse.json({ result, success: true }, { status: 200 });
-}
-
-export async function POST(req) {
-  const payload = await req.json();
-  await dbConnect();
-
-  if (!payload.fullName || !payload.email || !payload.message) {
-    return NextResponse.json(
-      { message: "Required name, email and message", success: false },
-      { status: 400 }
-    );
-  }
-
   try {
-    const message = new Message({
-      fullName: payload.fullName,
-      email: payload.email,
-      message: payload.message,
-    });
+    await dbConnect();
 
-    await message.save();
+    const userCount = await User.countDocuments();
+    const blogCount = await Blog.countDocuments();
+    const messageCount = await Message.countDocuments();
 
     return NextResponse.json(
-      { message: "Message sent successfully!", success: true },
+      {
+        success: true,
+        data: {
+          users: userCount,
+          blogs: blogCount,
+          messages: messageCount,
+        },
+      },
       { status: 200 }
     );
-  } catch (err) {
+  } catch (error) {
     return NextResponse.json(
-      { message: err.message, success: false },
+      { success: false, message: "Error fetching count data" },
       { status: 500 }
     );
   }
