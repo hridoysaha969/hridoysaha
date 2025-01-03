@@ -7,6 +7,7 @@ import Resume from "./Resume";
 import Portfolio from "./Portfolio";
 import Services from "./Services";
 import Contact from "./Contact";
+import ScrollToTop from "./ScrollToTop";
 function MainContent({ searchParams }) {
   const [activeMenu, setActiveMenu] = useState("about");
 
@@ -19,7 +20,8 @@ function MainContent({ searchParams }) {
   }, [searchParams]);
 
   return (
-    <div className={styles.main__content}>
+    <ScrollToTop dependencies={[activeMenu]} className={styles.main__content}>
+      {/* <div className={styles.main__content}> */}
       <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       {activeMenu === "about" && (
         <About activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
@@ -28,7 +30,8 @@ function MainContent({ searchParams }) {
       {activeMenu === "portfolio" && <Portfolio activeMenu={activeMenu} />}
       {activeMenu === "services" && <Services activeMenu={activeMenu} />}
       {activeMenu === "contact" && <Contact activeMenu={activeMenu} />}
-    </div>
+      {/* </div> */}
+    </ScrollToTop>
   );
 }
 
