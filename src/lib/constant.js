@@ -105,6 +105,7 @@ export const projectArray = [
     sub_title:
       "A Custom Phone Case Creation Platform with Cutting-Edge Web Technologies",
     category: "web-development",
+    keywords: `casemate, custom phone case design, phone case website, hridoy saha project, projects, web design project, next js project, react js project, website design template, next js project ${new Date().getFullYear()}`,
     overview:
       "CaseMate is an innovative web application designed to offer users a seamless and personalized experience in creating custom phone cases. The project provides users with the ability to upload their own images, tailor the case design according to their phone model, and order the customized phone case with integrated online payment.",
     technologies:
@@ -140,6 +141,7 @@ export const projectArray = [
     title: "BG Removal",
     sub_title: "Effortless Background Removal for Your Images",
     category: "web-development",
+    keywords: `bg remove, background remove, image bg remove, image background remove, hridoy saha project, projects, web design project, next js project, react js project, website design template, next js project ${new Date().getFullYear()}`,
     overview:
       "This project is a user-friendly image background removal web application, allowing users to easily upload images and remove backgrounds with just a few clicks. The app provides a seamless experience, backed by robust authentication and efficient image processing.",
     technologies:
@@ -175,6 +177,7 @@ export const projectArray = [
     title: "CryptoByte",
     sub_title: "Real-Time Crypto Market Updates & Insights.",
     category: "web-design",
+    keywords: `crypto market, crypto currency website design, stock market website, crypto website, hridoy saha project, projects, web design project, next js project, react js project, website design template, next js project ${new Date().getFullYear()}`,
     overview:
       "CryptoByte is a cutting-edge cryptocurrency tracking web application that provides users with real-time updates on market trands, including 24-hour highs, lows and market cap on various coins. CryptoByte allows visitors to monitor the fast-moving world of cryptocurrency with ease.",
     technologies:
@@ -205,6 +208,7 @@ export const projectArray = [
     title: "Horizon",
     sub_title: "Bank Account Management Web App",
     category: "web-development",
+    keywords: `Horizon, bank website, bank website design, admin dashboard design, hridoy saha project, web analytics, projects, web design project, next js project, react js project, website design template, next js project ${new Date().getFullYear()}`,
     overview:
       "Horizon is a dynamic bank account management application designed to simplify financial organization. This web app enables users to securely link multiple bank accounts, monitor transactions, and transfer funds between accounts with ease. ([Demo] email: johndoe@test.com, password: pass_123)",
     technologies:

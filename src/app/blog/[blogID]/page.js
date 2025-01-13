@@ -124,6 +124,14 @@ export async function generateMetadata({ params }) {
   return {
     title: blog?.title,
     description: truncateText(blog?.content, 160),
+    keywords: [
+      "web development",
+      "front end development",
+      "hridoy saha blog",
+      "about hridoy saha",
+      "next js install",
+      "react js",
+    ],
     openGraph: {
       type: "article",
       title: blog?.title,

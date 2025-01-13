@@ -49,8 +49,21 @@ export function generateMetadata() {
     title: "Blog - Hridoy Saha | Web Development Insights & Tutorials",
     description:
       "Stay updated with Hridoy Saha's blog, featuring articles on web development, frontend and backend technologies, coding tutorials, and project insights.",
-    keywords:
-      "Web Development Blog, JavaScript Tips and Tricks, Frontend Development Guide, MERN Stack Tutorials, Developer Portfolio Blog, Hridoy Saha Blog, Web Development, Modern Web Design, Coding Tips for Beginners, blogs, programming, web design, freelancer",
+    keywords: [
+      "Web Development Blog",
+      "JavaScript Tips and Tricks",
+      "Frontend Development Guide",
+      "MERN Stack Tutorials",
+      "Developer Portfolio Blog",
+      "Hridoy Saha Blog",
+      "Web Development",
+      "Modern Web Design",
+      "Coding Tips for Beginners",
+      "blogs",
+      "programming",
+      "web design",
+      "freelancer",
+    ],
     openGraph: {
       title: "Blog - Hridoy Saha | Web Development Insights & Tutorials",
       description:

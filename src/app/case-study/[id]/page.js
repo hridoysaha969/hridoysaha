@@ -145,6 +145,15 @@ export async function generateMetadata({ params }) {
     return notFound();
   }
 
+  const keywords = (keywords) => {
+    if (keywords) {
+      const splitArr = project.keywords.split(", ");
+      return splitArr;
+    } else {
+      return ["Case study", "hridoy saha portfolio"];
+    }
+  };
+
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "";
@@ -155,7 +164,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `${project?.title} - ${project?.sub_title}`,
     description: truncateText(project?.overview, 120),
-    keywords: `${project?.keywords}`,
+    keywords: keywords(project?.keywords),
     openGraph: {
       title: `${project?.title} - ${project?.sub_title}`,
       description: truncateText(project?.overview, 120),
