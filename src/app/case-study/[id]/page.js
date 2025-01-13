@@ -155,11 +155,18 @@ export async function generateMetadata({ params }) {
   return {
     title: `${project?.title} - ${project?.sub_title}`,
     description: truncateText(project?.overview, 120),
+    keywords: `${project?.keywords}`,
     openGraph: {
       title: `${project?.title} - ${project?.sub_title}`,
       description: truncateText(project?.overview, 120),
       url: `https://hridoysaha.vercel.app/case-study/${params.id}`,
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project?.title} - ${project?.sub_title}`,
+      description: truncateText(project?.overview, 120),
+      images: [`${project?.image.src}`], // Same image for Twitter
     },
   };
 }

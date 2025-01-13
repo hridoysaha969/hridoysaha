@@ -5,6 +5,7 @@ export const getServerSideProps = ({ res }) => {
         Disallow: /dashboard
         Allow: /login
         Allow: /blog
+        Allow: /blog/:path*
         Allow: /`);
 
   res.end();

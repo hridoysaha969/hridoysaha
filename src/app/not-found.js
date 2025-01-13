@@ -14,3 +14,11 @@ function NotFound() {
 }
 
 export default NotFound;
+
+export async function generateMetadata() {
+  return {
+    title: "Not Found! | Hridoy Saha Portfolio",
+    description:
+      "Sorry! The page ypu are looking for is not cooked yet. Have a look at my other pages.",
+  };
+}

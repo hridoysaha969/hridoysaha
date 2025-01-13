@@ -18,7 +18,6 @@ function DashHome() {
     fetchData();
   }, []);
 
-  console.log(countData);
   return (
     <div className={styles.cardBox}>
       <div className={styles.card}>

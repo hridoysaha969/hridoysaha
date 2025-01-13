@@ -16,6 +16,8 @@ export async function generateMetadata() {
     title: "Hridoy Saha | Full-Stack Web Developer",
     description:
       "Full-stack web developer offering frontend, backend, and database solutions. Expert in creating responsive websites, robust APIs, and efficient databases.",
+    keywords:
+      "Hridoy Saha, Hridoy Saha Portfolio, Web Developer in Bangladesh, freelancer, freelancer hridoy, Chittagong Web Developer, Chandpur Web Developer, Bangladeshi Web Developer, Hridoy Saha Web Developer, Frontend Developer Bangladesh, Portfolio of Hridoy Saha, Modern Web Development, Hridoy Saha Frontend Portfolio, Bangladesh MERN Stack Developer",
     openGraph: {
       type: "website",
       title: "Hridoy Saha | Full-Stack Web Developer",

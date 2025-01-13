@@ -3,8 +3,6 @@ import Aside from "@/components/Aside";
 import CheckoutContent from "@/components/CheckoutContent";
 import { servicesArray } from "@/lib/constant";
 function page({ params }) {
-  console.log(params.id);
-
   return (
     <main className={styles.main}>
       <Aside />

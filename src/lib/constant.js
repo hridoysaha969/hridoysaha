@@ -64,6 +64,7 @@ export const projectArray = [
     sub_title:
       "Track, Analyze, and Optimize Your Website Performance with Ease.",
     category: "web-development",
+    keywords: `Insight Metrics, hridoy saha project, web analytics, projects, web design project, next js project, react js project, website design template, next js project ${new Date().getFullYear()}`,
     overview:
       "This web application provides a seamless solution for tracking website analytics. Users can easily add their websites, generate a unique script tag, and integrate it into their site's code to monitor real-time metrics like visits and page views. The platform is built with a modern tech stack to deliver an efficient analytics experience.",
     technologies:
