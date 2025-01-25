@@ -347,7 +347,12 @@ article.active {
 }
 
 /*  */
-
+.markdown a {
+  color: var(--vegas-gold);
+}
+.markdown a:hover {
+  color: var(--orange-yellow-crayola);
+}
 /*  */
 
 @media (min-width: 580px) {
