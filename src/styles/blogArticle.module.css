@@ -65,29 +65,82 @@
   height: 4px;
   border-radius: 4px;
 }
+
+/* Blog Article Style */
 .blog__article_content {
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
   margin-top: 20px;
   color: var(--light-gray);
+  background: var(--eerie-black-2);
+  max-width: 100%;
+  word-wrap: break-word;
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
-.blog__article_content p,
-.blog__text {
-  color: var(--light-gray);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
-  line-height: 1.6;
+.heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--vegas-gold);
+  margin-top: 1.5rem;
 }
-.blog__article_content h2 {
-  margin: 25px 0 10px;
-  font-size: var(--fs-1);
-  color: var(--light-gray);
+
+.paragraph {
+  margin-bottom: 1rem;
 }
-.blog__article_content h4 {
-  margin: 20px 0 5px;
-  color: var(--light-gray);
+
+/* Inline Code */
+.inlineCode {
+  background-color: #2d2d2d;
+  color: #ffcb6b;
+  font-family: "Courier New", Courier, monospace;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
+
+/* Code Block */
+.codeBlock {
+  background-color: #282a36;
+  color: #f8f8f2; /* Light text color */
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  overflow-x: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Highlight.js Syntax Highlighting */
+.hljs {
+  background: none; /* Preserve custom background */
+  color: inherit;
+}
+
+.hljs-keyword {
+  color: #c792ea;
+}
+
+.hljs-string {
+  color: #c3e88d;
+}
+
+.hljs-comment {
+  color: #546e7a;
+  font-style: italic;
+}
+
+.hljs-function {
+  color: #82aaff;
+}
+
+.hljs-number {
+  color: #f78c6c;
+}
+
+/* End */
 
 .blog__share_wrapper {
   margin: 1.25rem 0;

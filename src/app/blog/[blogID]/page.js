@@ -3,6 +3,9 @@ import styles from "@/styles/blogArticle.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 async function getBlog(id) {
   try {
@@ -93,12 +96,31 @@ async function page({ params }) {
             />
           </div>
 
-          <div
-            className={styles.blog__article_content}
-            dangerouslySetInnerHTML={{
-              __html: blog ? blog.content : <p>No Data</p>,
-            }}
-          ></div>
+          <div className={`${styles.blog__article_content} markdown`}>
+            <ReactMarkdown
+              components={{
+                h1: ({ node, ...props }) => (
+                  <h1 className={styles.heading} {...props} />
+                ),
+                p: ({ node, ...props }) => (
+                  <p className={styles.paragraph} {...props} />
+                ),
+                code: ({ node, inline, className, children, ...props }) => {
+                  return !inline ? (
+                    <pre className={styles.codeBlock}>
+                      <code {...props}>{children}</code>
+                    </pre>
+                  ) : (
+                    <code className={styles.inlineCode} {...props}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
+            >
+              {blog.content}
+            </ReactMarkdown>
+          </div>
         </article>
       ) : null}
     </main>

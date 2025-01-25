@@ -62,7 +62,7 @@ export async function POST(req) {
       token,
       new TextEncoder().encode(process.env.JWT_SECRET)
     );
-    if (payload.role !== "admin") {
+    if (payload.role !== process.env.ADMIN_AUTH_VALUE) {
       return NextResponse.json(
         { message: "Access denied, admins only", success: false },
         { status: 400 }
