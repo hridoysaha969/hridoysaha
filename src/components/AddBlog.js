@@ -108,22 +108,6 @@ function AddBlog() {
             onChange={handleChange}
             required
           />
-          {/* <input
-            type="text"
-            name="heading"
-            placeholder="Add heading"
-            value={blogData.heading}
-            onChange={handleChange}
-            required
-          /> */}
-          {/* <textarea
-            name="sub_content"
-            rows={5}
-            placeholder="Add a sub heading"
-            value={blogData.sub_content}
-            onChange={handleChange}
-            required
-          /> */}
         </div>
 
         <div className={styles.right__inputs}>

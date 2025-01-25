@@ -29,6 +29,7 @@ function DashboardNav({ showMenu, setShowMenu, activeMenu, setActiveMenu }) {
       console.log(error.message);
     }
   };
+
   return (
     <div className={`${styles.navigation} ${showMenu && styles.active}`}>
       <ul>
@@ -56,7 +57,12 @@ function DashboardNav({ showMenu, setShowMenu, activeMenu, setActiveMenu }) {
         </li>
 
         <li className={`${activeMenu === "users" && styles.hovered}`}>
-          <button onClick={() => setActiveMenu("users")}>
+          <button
+            onClick={() => {
+              setShowMenu(!showMenu);
+              setActiveMenu("users");
+            }}
+          >
             <span className={styles.icon}>
               <MdPerson />
             </span>

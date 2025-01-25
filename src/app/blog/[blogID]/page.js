@@ -143,17 +143,30 @@ export async function generateMetadata({ params }) {
     return text;
   };
 
-  return {
-    title: blog?.title,
-    description: truncateText(blog?.content, 160),
-    keywords: [
+  const keyWords = (string) => {
+    const defaultKeyWord = [
+      "html",
+      "css",
+      "javascript",
       "web development",
       "front end development",
       "hridoy saha blog",
       "about hridoy saha",
-      "next js install",
+      "next js",
       "react js",
-    ],
+    ];
+    if (string) {
+      const splitArr = string.split(" ");
+      splitArr.push(...defaultKeyWord);
+      return splitArr;
+    }
+    return defaultKeyWord;
+  };
+
+  return {
+    title: blog?.title,
+    description: truncateText(blog?.content, 160),
+    keywords: keyWords(blog.title),
     openGraph: {
       type: "article",
       title: blog?.title,

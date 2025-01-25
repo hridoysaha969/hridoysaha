@@ -18,14 +18,16 @@ export function generateMetadata() {
     description:
       "Login to Hridoy Saha's web development platform to access personalized services, project management, and more. Secure and seamless login experience.",
     keywords: [
-      "Hridoy Saha",
-      "Hridoy Saha Portfolio",
-      "Login to portfolio",
+      "hridoy saha",
+      "hridoy saha portfolio",
+      "developer portfolio",
+      "login to portfolio",
       "sign up page design",
       "Login page design",
       "developer portfolio",
       "Frontend Developer Bangladesh",
       "Frontend Developer",
+      "full stack developer",
       "MERN Stack Developer",
     ],
     openGraph: {
