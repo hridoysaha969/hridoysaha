@@ -1,11 +1,14 @@
 import BlogShare from "@/components/BlogShare";
+// import GoogleAd from "@/components/GoogleAd";
 import styles from "@/styles/blogArticle.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import dynamic from "next/dynamic";
+
+// Dynamically import GoogleAd (Client-only)
+const GoogleAd = dynamic(() => import("@/components/GoogleAd"), { ssr: false });
 
 async function getBlog(id) {
   try {
@@ -56,6 +59,7 @@ async function page({ params }) {
 
     return formattedDate;
   };
+  console.log(process.env.GOOGLE_AD_SLOT);
 
   return (
     <main className={styles.blog__container}>
@@ -120,6 +124,7 @@ async function page({ params }) {
             >
               {blog.content}
             </ReactMarkdown>
+            <GoogleAd adSlot={process.env.GOOGLE_AD_SLOT} />
           </div>
         </article>
       ) : null}

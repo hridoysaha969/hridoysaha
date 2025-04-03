@@ -33,6 +33,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.className}>
+      <head>
+        {/* Google AdSense script */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4285608810088234"
+          crossorigin="anonymous"
+        ></script>
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -3,6 +3,7 @@ import styles from "@/styles/blog.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import BlogNav from "./BlogNav";
+import GoogleAd from "./GoogleAd";
 
 async function BlogContent({ blogs }) {
   const handleFormateDate = (dynamicDate) => {
@@ -24,6 +25,7 @@ async function BlogContent({ blogs }) {
     }
     return text;
   };
+  console.log(process.env.GOOGLE_AD_SLOT);
 
   return (
     <div className={styles.main__content}>
@@ -101,6 +103,7 @@ async function BlogContent({ blogs }) {
               </Link>
             </li> */}
           </ul>
+          <GoogleAd adSlot={process.env.GOOGLE_AD_SLOT} />
         </section>
       </article>
     </div>
