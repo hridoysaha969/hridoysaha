@@ -2,12 +2,15 @@ import Aside from "@/components/Aside";
 import BlogContent from "@/components/BlogContent";
 import styles from "@/styles/blog.module.css";
 
-async function getBlogs() {
+async function getBlogs({ searchParams }) {
+  console.log(searchParams?.page, "from blog page");
+
   try {
+    const page = parseInt(searchParams?.page) || 1;
     const url =
       process.env.NODE_ENV !== "development"
-        ? `https://hridoysaha.netlify.app/api/blog`
-        : `http://localhost:3000/api/blog`;
+        ? `https://hridoysaha.netlify.app/api/blog?page=${page}`
+        : `http://localhost:3000/api/blog?page=${page}`;
     let res = await fetch(url, {
       cache: "no-cache",
     });
@@ -24,20 +27,27 @@ async function getBlogs() {
       throw new Error("Invalid data structure: blogs not found");
     }
 
-    return data.blogs;
+    return {
+      blogs: data.blogs,
+      pagination: data.pagination,
+    };
   } catch (error) {
     console.error("Error fetching blogs:", error);
     return []; // Return an empty array if an error occurs
   }
 }
 
-async function page() {
-  const blogs = await getBlogs();
+async function page({ searchParams }) {
+  const data = await getBlogs(searchParams);
 
   return (
     <main className={styles.main}>
       <Aside />
-      <BlogContent blogs={blogs} />
+      <BlogContent
+        blogs={data.blogs}
+        pagination={data.pagination}
+        getBlogs={getBlogs}
+      />
     </main>
   );
 }

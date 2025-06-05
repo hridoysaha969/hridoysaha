@@ -1,19 +1,13 @@
 import dbConnect from "@/lib/connection";
 import { Blog } from "@/lib/models/Blog";
-import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
   await dbConnect();
   const { id } = params;
 
-  // Check if the provided id is a valid MongoDB ObjectId
-  // if (!mongoose.Types.ObjectId.isValid(id)) {
-  //   return NextResponse.json(
-  //     { message: "Invalid blog ID", success: false },
-  //     { status: 400 }
-  //   );
-  // }
+  // TEMPORARY: Set missing views field to 0
+  await Blog.updateMany({ views: { $exists: false } }, { $set: { views: 0 } });
 
   // const blogs = await Blog.findById(id); // Fetch your blog data from the database
   const blogs = await Blog.findOne({ slug: id }).lean();

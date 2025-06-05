@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const ScrollToTop = ({ children, dependencies = [], className = "" }) => {
   const scrollContainerRef = useRef(null);
-  console.dir(scrollContainerRef.current);
+  // console.dir(scrollContainerRef.current);
 
   useEffect(() => {
     if (scrollContainerRef.current) {

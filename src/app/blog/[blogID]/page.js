@@ -59,12 +59,13 @@ async function page({ params }) {
 
     return formattedDate;
   };
-  console.log(process.env.GOOGLE_AD_SLOT);
+  // console.log(process.env.GOOGLE_AD_SLOT);
 
   return (
     <main className={styles.blog__container}>
       {blog ? (
         <article className={`${styles.blog__article} active`}>
+          {/* ===== Bredcrumps ===== */}
           <div className={styles.nav__back_links}>
             <p>
               <Link href="/">Home</Link>
@@ -74,6 +75,7 @@ async function page({ params }) {
               <Link href={`/blog/${params.blogID}`}>Post</Link>
             </p>
           </div>
+
           <header>
             <h2 className={`h2`}>{blog?.title}</h2>
           </header>
@@ -97,6 +99,8 @@ async function page({ params }) {
             <BlogShare
               blogTitle={blog.title}
               blogUrl={`https://hridoysaha.vercel.app/blog/${params.blogID}`}
+              blogID={blog._id}
+              views={blog.views}
             />
           </div>
 

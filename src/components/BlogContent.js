@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import BlogNav from "./BlogNav";
 import GoogleAd from "./GoogleAd";
+import BlogPagination from "./BlogPagination";
 
-async function BlogContent({ blogs }) {
+async function BlogContent({ blogs, pagination }) {
   const handleFormateDate = (dynamicDate) => {
     // Convert the MongoDB date string to a Date object
     const createdAt = new Date(dynamicDate);
@@ -25,7 +26,6 @@ async function BlogContent({ blogs }) {
     }
     return text;
   };
-  console.log(process.env.GOOGLE_AD_SLOT);
 
   return (
     <div className={styles.main__content}>
@@ -72,37 +72,9 @@ async function BlogContent({ blogs }) {
                   </Link>
                 </li>
               ))}
-            {/* <li className={styles.blog__post_item}>
-              <Link href="#">
-                <figure className={styles.blog__banner_box}>
-                  <Image
-                    src={img1}
-                    alt="Design conferences in 2022"
-                    loading="lazy"
-                  />
-                </figure>
-
-                <div className={styles.blog__content}>
-                  <div className={styles.blog__meta}>
-                    <p className={styles.blog__category}>Design</p>
-
-                    <span className={styles.dot}></span>
-
-                    <time dateTime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 className={`h3 ${styles.blog__item_title}`}>
-                    Design conferences in 2022
-                  </h3>
-
-                  <p className={styles.blog__text}>
-                    Veritatis et quasi architecto beatae vitae dicta sunt,
-                    explicabo.
-                  </p>
-                </div>
-              </Link>
-            </li> */}
           </ul>
+
+          {/* <BlogPagination pagination={pagination} /> */}
           <GoogleAd adSlot={process.env.GOOGLE_AD_SLOT} />
         </section>
       </article>

@@ -148,6 +148,17 @@
 .form__btn_wrapper {
   margin-left: auto;
   padding-right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.form__btn_wrapper span {
+  color: var(--white-1);
+}
+.flex__box {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 .form__btn {
   position: relative;

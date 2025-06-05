@@ -10,38 +10,37 @@ import slugify from "slugify";
 export async function GET(req) {
   const cookieStore = cookies();
   const tokenCookie = cookieStore.get("_hs_User_access_token"); //Get The Cookie Object
-
   const token = tokenCookie?.value || "";
 
-  // if (!token) {
-  //   return NextResponse.json(
-  //     { message: "Unauthorized!", success: false },
-  //     { status: 400 }
-  //   );
-  // }
+  const { searchParams } = new URL(req.url);
+  console.log(searchParams.get("page"), "From Rout API");
 
-  // try {
-  //   const { payload } = await jwtVerify(
-  //     token,
-  //     new TextEncoder().encode(process.env.JWT_SECRET)
-  //   );
-  //   if (payload.role !== "admin") {
-  //     return NextResponse.json(
-  //       { message: "Access denied, admins only", success: false },
-  //       { status: 400 }
-  //     );
-  //   }
-  // } catch (err) {
-  //   return NextResponse.json(
-  //     { message: "Server error", success: false },
-  //     { status: 500 }
-  //   );
-  // }
+  const page = parseInt(searchParams.get("page")) || 1;
+  const limit = 6;
+
+  const skip = (page - 1) * limit;
 
   await dbConnect();
-  const blogs = await Blog.find({}); // Fetch your blog data from the database
+  const blogs = await Blog.find({})
+    .sort({ publishDate: -1 })
+    .skip(skip)
+    .limit(limit); // Fetch your blog data from the database
 
-  return NextResponse.json({ blogs, success: true }, { status: 200 });
+  const totalBlogs = await Blog.countDocuments();
+
+  return NextResponse.json(
+    {
+      blogs,
+      success: true,
+      pagination: {
+        total: totalBlogs,
+        page,
+        limit,
+        totalPages: Math.ceil(totalBlogs / limit),
+      },
+    },
+    { status: 200 }
+  );
 }
 
 export async function POST(req) {
