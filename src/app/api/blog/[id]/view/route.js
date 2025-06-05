@@ -22,23 +22,21 @@ export async function POST(req, { params }) {
     const now = new Date();
     const TWELVE_HOURS = 12 * 60 * 60 * 1000;
 
-    // Try to update an existing view if it's older than 12 hours
-    const result = await BlogViews.findOneAndUpdate(
-      {
-        blogId,
-        ip,
-        $or: [
-          { lastViewedAt: { $lt: new Date(now.getTime() - TWELVE_HOURS) } },
-          { lastViewedAt: { $exists: false } },
-        ],
-      },
-      { $set: { lastViewedAt: now } },
-      { upsert: true, new: false } // new: false returns old doc before update
-    );
+    const existingView = await BlogViews.findOne({ blogId, ip });
 
-    // If no previous document or outdated one, increment views
-    if (!result) {
+    if (!existingView) {
+      // No view exists yet from this IP, create one and increment view
+      await BlogViews.create({ blogId, ip, lastViewedAt: now });
       await Blog.findByIdAndUpdate(blogId, { $inc: { views: 1 } });
+    } else {
+      const lastViewedAt = new Date(existingView.lastViewedAt || 0);
+
+      // Check if 12 hours have passed
+      if (now - lastViewedAt > TWELVE_HOURS) {
+        existingView.lastViewedAt = now;
+        await existingView.save();
+        await Blog.findByIdAndUpdate(blogId, { $inc: { views: 1 } });
+      }
     }
 
     return NextResponse.json({ success: true }, { status: 200 });
